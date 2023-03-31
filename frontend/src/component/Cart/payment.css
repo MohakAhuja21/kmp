@@ -1,0 +1,119 @@
+.paymentContainer {
+  width: 100vw;
+  max-width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: white;
+  top: 0%;
+  left: 0;
+  overflow: hidden;
+}
+
+.paymentBox {
+  background-color: whitesmoke;
+  width: 30vw;
+  min-width: 400px;
+  max-width: unset;
+  box-sizing: border-box;
+  overflow: hidden;
+  border-radius: 2%;
+  box-shadow: 0 0 10px rgb(0 0 0 / 27%);
+  margin: 10px;
+}
+
+.paymentHeading {
+  text-align: center;
+  color: green;
+  padding-right: 5px;
+  border-radius: 3px;
+  background-color: white;
+}
+
+.paymentForm {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: auto;
+  justify-content: space-evenly;
+  transition: all 0.5s;
+  padding: 2vmax 3vmax;
+}
+
+.paymentForm > div {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  margin: 10px;
+}
+
+.paymentInput {
+  padding: 1vmax 4vmax;
+  padding-right: 1vmax;
+  width: 100%;
+  box-sizing: border-box;
+  border: 2px solid green;
+  border-radius: 4px;
+  font: 400 18px "Roboto";
+  outline: none;
+  background-color: white;
+}
+
+.paymentForm > div > svg {
+  position: absolute;
+  transform: translateX(1vmax);
+  font-size: 2vmax;
+  color: green;
+}
+
+.paymentFormBtn {
+  border: none;
+  background: linear-gradient(to right, #52c234, #195702);
+  color: white;
+  font: 500 20px "Roboto";
+  width: 100%;
+  padding: 1vmax;
+  cursor: pointer;
+  transition: all 0.5s;
+  outline: none;
+  margin: 2vmax;
+  border-radius: 5px;
+}
+
+.paymentFormBtn:hover {
+  background: gray;
+}
+
+.noteStripe {
+  margin: -1.5vmax auto 10px auto;
+  text-align: center;
+}
+.noteStripe h4 {
+  color: grey;
+}
+.noteStripe h4 b {
+  color: red;
+}
+
+@media screen and (max-width: 600px) {
+  .paymentBox {
+    width: 90%;
+    max-width: 400px;
+    min-width: unset;
+    margin: 15px;
+  }
+
+  .paymentInput {
+    padding: 2vw 10vw;
+    font: 300 4vw "Roboto";
+  }
+
+  .paymentForm > div > svg {
+    font-size: 6vw;
+  }
+
+  .paymentFormBtn {
+    font: 300 4vw "Roboto";
+    padding: 2vw;
+  }
+}

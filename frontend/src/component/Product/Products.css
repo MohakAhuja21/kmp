@@ -1,0 +1,143 @@
+.products {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 0 5vmax;
+  justify-content: center;
+  min-height: 30vh;
+  margin: 8vmax 0 0 13vmax;
+  overflow: hidden !important;
+}
+
+.pagination {
+  overflow: hidden;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  padding: 0;
+}
+
+.page-item {
+  list-style: none;
+  padding: 1vmax 1.5vmax;
+  transition: all 0.3s;
+  cursor: pointer;
+}
+.page-item:first-child {
+  display: none;
+  border-radius: 5px 0 0 5px;
+}
+
+.page-item:last-child {
+  display: none;
+  border-radius: 0 5px 5px 0;
+}
+.page-link {
+  font-size: large;
+  text-decoration: none;
+  color: rgb(80, 80, 80);
+  transition: all 0.3s;
+}
+
+.page-item:hover {
+  background-color: rgb(230, 230, 230);
+}
+
+.page-item:hover .page-link {
+  color: rgb(0, 0, 0);
+}
+
+.pageItemActive {
+  background-color: #FFBF00;
+}
+
+.pageLinkActive {
+  color: black;
+  font-weight: bold;
+}
+
+.categoryBox {
+  display: flex;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  margin-bottom: 15px;
+  -webkit-overflow-scrolling: touch; /* for smoother scrolling on iOS */
+}
+
+.category-link {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  margin-top: 8px;
+  max-width: 120px;
+  margin-inline: 12px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.category-link:last-child {
+  margin-right: 0;
+}
+
+.category-link:hover {
+  transform: scale(1.05);
+}
+
+.category-link img {
+  border-radius: 50%;
+  width: 80px;
+  height: 80px;
+  object-fit: contain;
+}
+
+.category-link span {
+  white-space: nowrap;
+  font-size: 13px;
+  font-weight: 450;
+  font-style: italic;
+  text-align: center;
+  border-bottom: 1px #FFBF00 solid;
+  width: fit-content;
+}
+
+@media screen and (min-width: 768px) {
+  .categoryBox {
+    overflow-x: hidden;
+  }
+
+  .category-link {
+    width: calc(33.33% - 16px);
+    max-width: none;
+    margin-right: 16px;
+    margin-bottom: 0;
+  }
+}
+
+
+@media screen and (max-width: 850px) {
+  .paginationBox{
+    margin-bottom: 1vh;
+  }
+  
+  .products {
+    padding: 0;
+    margin: 6vmax 0 ;
+    margin-bottom: 10px;
+  }
+  .pagination {
+    justify-content: space-evenly;
+    border: 1px solid whitesmoke;
+  }
+  .page-link{
+    font-size: 20px;
+  }
+  .page-item {
+    padding: 2vmax;
+  }
+}
+
+@media (min-width: 1380px) {
+  .products {
+    margin-top: 80px;
+  }
+}

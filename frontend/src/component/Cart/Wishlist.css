@@ -1,0 +1,150 @@
+.whishlistPage {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+}
+
+.breadcrumb {
+  background-color: #f2f2f2;
+  padding: 10px;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  font-size: 16px;
+  color: #666;
+}
+
+.breadcrumb ul {
+  display: flex;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.breadcrumb li:not(:last-child) {
+  margin-right: 10px;
+}
+
+.breadcrumb li:last-child {
+  font-weight: bold;
+  color: #333;
+}
+
+.whishlistTable {
+  margin-top: 15px;
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 20px;
+}
+
+.whishlistTable th,
+.whishlistTable td {
+  padding: 10px;
+  text-align: left;
+  vertical-align: top;
+  border-bottom: 1px solid #ddd;
+}
+
+.whishlistTable th {
+  background-color: #f2f2f2;
+  font-weight: bold;
+}
+
+.whishlistTable td img {
+  width: 100%;
+  max-width: 150px;
+  height: 10vh;
+}
+
+.whishlistTable td a {
+  color: #333;
+  text-decoration: none;
+}
+
+.whishlistTable td button {
+  display: block;
+  background-color: #f44336;
+  border: none;
+  color: #fff;
+  padding: 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.whishlistTable td button:hover {
+  background-color: #d32f2f;
+}
+
+.wishlistEmpty {
+  margin: auto;
+  text-align: center;
+  padding: 10vmax;
+  height: 50vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.wishlistEmpty > svg {
+  font-size: 8vmax;
+  color: red;
+}
+
+.wishlistEmpty > p {
+  font-size: 2vmax;
+}
+
+.wishlistEmpty > a {
+  background-image: linear-gradient(
+    to right,
+    #ff8008 0%,
+    #ffc837 51%,
+    #ff8008 100%
+  );
+  background-size: 200% auto;
+  color: white;
+  border: none;
+  padding: 1vmax 3vmax;
+  cursor: pointer;
+  font: 500 2vmax "Roboto";
+  text-decoration: none;
+  margin: 2vmax;
+}
+
+.wishlistEmpty > a:hover {
+  background-position: right center;
+}
+
+@media screen and (max-width: 768px) {
+  .whishlistTable th,
+  .whishlistTable td {
+    padding: 5px;
+    font-size: 14px;
+  }
+
+  .whishlistTable td img {
+    margin-left: -8px;
+  }
+
+  .whishlistTable td button {
+    font-size: 14px;
+    padding: 5px;
+  }
+  
+  .wishlistEmpty > a {
+    padding: 3vw 6vw;
+    font: 400 4vw "Roboto";
+    margin: 2vmax;
+  }
+
+  .wishlistEmpty > svg {
+    font-size: 20vw;
+  }
+  .wishlistEmpty > p {
+    margin: 2vmax;
+    font-size: 5vw;
+  }
+}

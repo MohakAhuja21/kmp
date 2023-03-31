@@ -1,0 +1,96 @@
+/* Mobile Styles */
+.updateProfileContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.updateProfileBox {
+  width: 100%;
+  max-width: 350px;
+  padding: 20px;
+}
+
+.updateProfileHeading {
+  border-bottom: 1px solid #ffbe00;
+  font-style: italic;
+  font-size: 28px;
+  margin-bottom: 20px;
+  width: fit-content;
+  font-weight: 700;
+}
+
+.updateProfileName,
+.updateProfileEmail {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.updateProfileName input,
+.updateProfileEmail input {
+  flex: 1;
+  margin-left: 10px;
+  font-size: 16px;
+  padding: 10px;
+}
+
+#updateProfileImage {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+#updateProfileImage img {
+  border-radius: 50%;
+  max-width: 110px;
+  margin-bottom: 10px;
+}
+
+.updateProfileBtn {
+  border: none;
+  background-color: #051b4c;
+  color: white;
+  font-size: large;
+  width: 100%;
+  padding: 0.8vmax;
+  cursor: pointer;
+  border-radius: 4px;
+  outline: none;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.219);
+}
+
+/* Tablet and Desktop Styles */
+@media (min-width: 768px) {
+  .updateProfileContainer {
+    justify-content: center;
+  }
+  
+  .updateProfileBox {
+    width: 50%;
+    max-width: 500px;
+    padding: 40px;
+  }
+  
+  .updateProfileName,
+  .updateProfileEmail {
+    margin-bottom: 40px;
+  }
+  
+  #updateProfileImage {
+    flex-direction: row;
+    align-items: flex-start;
+  }
+  
+  #updateProfileImage img {
+    max-width: 150px;
+    margin-right: 20px;
+    margin-bottom: 0;
+  }
+  
+  .updateProfileBtn {
+    font-size: 18px;
+    padding: 15px;
+  }
+}

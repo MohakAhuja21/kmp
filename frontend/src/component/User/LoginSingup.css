@@ -1,0 +1,228 @@
+.loginSignUp {
+  width: 100vw;
+  height: 100vh;
+  max-width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: white;
+  position: fixed;
+  top: 0%;
+  left: 0;
+  z-index: 1;
+}
+
+.loginSignUp ::placeholder {
+  color: rgba(51, 51, 51, 0.883) !important;
+}
+
+.LoginSignUpBox {
+  width: 25vw;
+  height: 70vh;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+.loginSignToggle {
+  display: flex;
+  height: 3vmax;
+}
+.loginSignToggle > p {
+  color: rgba(0, 0, 0, 0.678);
+  font-size: large;
+  transition: all 0.5s;
+  cursor: pointer;
+  display: grid;
+  place-items: center;
+  width: 100%;
+}
+
+.LoginSignUpBox > div > button {
+  background-color: #ffbe00;
+  height: 3px;
+  width: 50%;
+  border: none;
+  transition: all 0.5s;
+}
+
+.loginForm {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: auto;
+  padding: 2vmax;
+  justify-content: space-evenly;
+  height: 55%;
+  transition: all 0.5s;
+}
+.signUpForm {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: auto;
+  padding: 2vmax;
+  justify-content: space-between;
+  height: 60%;
+  transition: all 0.5s;
+  overflow: hidden;
+}
+
+.signUpForm {
+  transform: translateY(-100%) translateX(-100vmax);
+}
+
+.loginForm > div,
+.signUpForm > div {
+  display: flex;
+  width: 100%;
+  align-items: center;
+}
+.signUpForm > div > input {
+  padding: 1vmax 4vmax;
+  padding-right: 1vmax;
+  width: 100%;
+  box-sizing: border-box;
+  border: 1px solid rgba(0, 0, 0, 0.267);
+  border-radius: 4px;
+  outline: none;
+  font-size: medium;
+}
+
+.loginForm > div > svg,
+.signUpForm > div > svg {
+  position: absolute;
+  transform: translateX(1vmax);
+  font-size: 1.6vmax;
+  color: rgba(0, 0, 0, 0.623);
+}
+
+.loginForm > a {
+  width: fit-content;
+  color: #333;
+  border-bottom: 2px solid #ffbe00;
+  padding-bottom: 4px;
+  text-decoration: none;
+  align-self: flex-end;
+  transition: all 0.5s;
+}
+
+#registerImage > img {
+  pointer-events: none;
+  width: 3vmax;
+  border-radius: 100%;
+}
+#registerImage > input {
+  display: flex;
+  padding: 0%;
+  margin-left: auto;
+  width: 80%;
+}
+
+#registerImage > input::file-selector-button {
+  cursor: pointer;
+  width: 100%;
+  z-index: 2;
+  height: 5vh;
+  border: none;
+  margin: 0%;
+  font-size: 16px;
+  transition: all 0.5s;
+  padding: 0 1vmax;
+  color: rgba(51, 51, 51, 0.883);
+  background-color: rgb(255, 255, 255);
+}
+
+#registerImage > input::file-selector-button:hover {
+  background-color: rgb(235, 235, 235);
+}
+
+.signUpName, .signUpEmail, .signUpPassword, #registerImage, .loginEmail{
+  margin-bottom: 20px;
+}
+
+.loginBtn,
+.signUpBtn {
+  border: none;
+  background-color: #051b4c;
+  color: white;
+  font-size: large;
+  width: 100%;
+  padding: 0.8vmax;
+  cursor: pointer;
+  border-radius: 4px;
+  outline: none;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.219);
+}
+
+.loginBtn:active,
+.signUpBtn:active {
+  transform: scale(0.98);
+}
+
+.shiftToLeft {
+  transform: translateX(-115%);
+}
+.shiftToNeutral {
+  transform: translateX(0%);
+}
+
+.shiftToNeutralForm {
+  transform: translateX(0%) translateY(-100%);
+}
+
+.shiftToRight {
+  transform: translateX(100%);
+}
+
+.eye{
+  background: none;
+  color: inherit;
+  border: none;
+	padding: 0;
+	font: inherit;
+	outline: inherit;
+  border: none;
+  cursor: pointer;
+  margin-left: -3rem;
+  z-index: 1;
+  }
+  .eye:hover{
+      color: #00d2ff;
+}
+
+
+@media screen and (max-width: 600px) {
+  .LoginSignUpBox {
+    height: 65vh;
+    width: 100%;
+  }
+  .loginSignToggle {
+    height: 5vmax;
+  }
+  .loginForm{
+    margin-top: 22px;
+  }
+  .signUpForm{
+    overflow-y: auto;
+    margin-top: 2px;
+  }
+
+  .loginForm > div > svg,
+  .signUpForm > div > svg {
+    font-size: 2.8vmax;
+  }
+
+  #registerImage > img {
+    width: 8vmax;
+    border-radius: 100%;
+  }
+
+  #registerImage > input::file-selector-button {
+    height: 6vh;
+  }
+
+  .loginBtn,
+  .signUpBtn {
+    padding: 1.8vmax;
+  }
+}
