@@ -13,7 +13,7 @@ import { toast } from "react-hot-toast";
 
 const categories = [
   {
-    name: "Hajmola",
+    name: "hajmola",
     image:
       "https://mishry.com/wp-content/uploads/2021/09/hajmola-candy-review.jpg",
   },

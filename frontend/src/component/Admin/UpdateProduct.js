@@ -41,13 +41,7 @@ const UpdateProduct = () => {
   const [oldImages, setOldImages] = useState([]);
   const [imagesPreview, setImagesPreview] = useState([]);
 
-  const categories = [
-    "hajmola",
-    "augmentin",
-    "Pantosec", 
-    "stugeron", 
-    "vertin"
-  ];
+  const categories = ["hajmola", "augmentin", "Pantosec", "stugeron", "vertin"];
 
   const { id } = useParams();
 
@@ -108,17 +102,16 @@ const UpdateProduct = () => {
   const updateProductImagesChange = (e) => {
     const files = Array.from(e.target.files);
 
-    setImages([]);
     setImagesPreview([]);
-    setOldImages([]);
+    setImages([]);
 
     files.forEach((file) => {
       const reader = new FileReader();
 
       reader.onload = () => {
         if (reader.readyState === 2) {
-          setImagesPreview((old) => [...old, reader.result]);
-          setImages((old) => [...old, reader.result]);
+          setImagesPreview((oldPreviews) => [...oldPreviews, reader.result]);
+          setOldImages((oldImages) => [...oldImages, file]);
         }
       };
 
@@ -232,13 +225,9 @@ const UpdateProduct = () => {
             </div>
 
             <div id="createProductFormImage">
-              {oldImages &&
-                oldImages.map((image, index) => (
-                  <img key={index} src={image.url} alt="Old Product Preview" />
-                ))}
-            </div>
-
-            <div id="createProductFormImage">
+              {oldImages.map((image, index) => (
+                <img key={index} src={image.url} alt="Old Product Preview" />
+              ))}
               {imagesPreview.map((image, index) => (
                 <img key={index} src={image} alt="Product Preview" />
               ))}

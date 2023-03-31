@@ -31,14 +31,7 @@ const NewProduct = () => {
   const [images, setImages] = useState([]);
   const [imagesPreview, setImagesPreview] = useState([]);
 
-  const categories = [
-    "hajmola",
-    "augmentin",
-    "Pantosec", 
-    "stugeron", 
-    "vertin"
-  ];
-
+  const categories = ["hajmola", "augmentin", "Pantosec", "stugeron", "vertin"];
 
   useEffect(() => {
     if (error) {
@@ -77,16 +70,13 @@ const NewProduct = () => {
   const createProductImagesChange = (e) => {
     const files = Array.from(e.target.files);
 
-    setImages([]);
-    setImagesPreview([]);
-
     files.forEach((file) => {
       const reader = new FileReader();
 
       reader.onload = () => {
         if (reader.readyState === 2) {
           setImagesPreview((old) => [...old, reader.result]);
-          setImages((old) => [...old, reader.result]);
+          setImages((old) => [...old, file]);
         }
       };
 
