@@ -1,0 +1,103 @@
+/* styling product */
+.productCard {
+    padding: 7px;
+    border-radius: 2px;
+    width: 19vmax;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    border: 0.5px solid lightgray;
+    text-decoration: none;
+    color: rgb(48, 48, 48);
+    margin: 1.5vmax;
+    transition: all 0.5s;
+  }
+  
+  .productCard > img {
+    width: 15vmax;
+    height: 14vmax;
+    object-fit: contain;
+  }
+  
+  .productCard > div {
+    margin: 1vmax;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+  }
+  
+  .productCardSpan {
+    /* margin: 0.5vmax; */
+    margin-left: 6px;
+    color: rgb(121, 121, 121);
+  }
+  
+  .productCard > p {
+    font-size: 1.2vmax;
+    margin: 1vmax 0.5vmax;
+    text-align: left;
+  }
+  
+  .productCard > .productCard__price{
+    margin: 5px 0 5px 4px;
+    color: #333;
+  }
+  .productCard__price >small{
+    font-size: 90%;
+    color: gray;
+      text-decoration: line-through;
+      display: inline-block;
+      margin-right: 5px;
+  }
+  .productCard__price >span{
+    margin-left: 4px;
+    font-size: 21px;
+  }
+  
+  .productCard:hover {
+    box-shadow: 0 0 5px rgba(15, 15, 15, 0.26);
+    transform: translateY(-1vmax);
+  }
+
+  @media screen and (max-width: 800px) {
+    .productCard {
+      display: grid;
+      grid-template-columns: 1fr 2fr 1fr;
+      grid-gap: 10px;
+      align-items: center;
+      text-align: center;
+      border-radius: 8px;
+      padding: 10px;
+      margin-bottom: 15px;
+      width: 100%;
+    }
+    
+    .productCard img {
+      width: 100%;
+    }
+    
+    .productCard p {
+      font-size: 1.2rem;
+      margin: 0;
+      color: #333;
+    }
+    
+    .productCard span {
+      font-weight: 420;
+      font-size: 2.3vmax;
+      margin: 0;
+      color: #333;
+    }
+  
+    .productCardSpan {
+      margin: 0 0.5vmax;
+      font-size: 12px;
+    }
+    .productCard__price >span{
+      margin-left: 2px;
+      font-size: 23px;
+    }
+    .productCard__price{
+      margin-top: 20px !important;
+    }
+  }
