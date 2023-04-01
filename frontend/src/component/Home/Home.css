@@ -101,7 +101,7 @@
 
 @media screen and (max-width: 650px) {
   .movie-title{
-    margin-top: 25px;
+    margin-top: 20px;
     padding-left: 13px;
   }
   .movie-des{
@@ -112,7 +112,7 @@
   }
   .slide-content{
     width: 90%;
-    background: linear-gradient(to right, #051b4c 60%, #ffffff00);
+    background: linear-gradient(to right, #051b4c 58%, #ffffff00);
   }
   .home__img{
     width: 50% !important;

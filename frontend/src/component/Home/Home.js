@@ -31,7 +31,9 @@ const Home = () => {
             <div className="carousel">
               <div className="slider">
                 <div className="slide-content">
-                  <h1 className="movie-title">Kamal Medicos Pharma</h1>
+                  <h1 className="movie-title">Kamal Medicos
+                  <br></br>
+                  Pharma</h1>
                   <ul className="movie-des">
                     <li>Trusted Partner for Wholesale Medicine Supply</li>
                     <li>
@@ -51,7 +53,6 @@ const Home = () => {
             </div>
           </div>
           <Slider />
-          <h2 className="homeHeading">Featured Brands/Products</h2>
           <div className="container">
             {products &&
               products.map((product) => <Product product={product} />)}
