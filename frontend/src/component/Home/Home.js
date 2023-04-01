@@ -33,14 +33,13 @@ const Home = () => {
                 <div className="slide-content">
                   <h1 className="movie-title">Kamal Medicos Pharma</h1>
                   <ul className="movie-des">
+                    <li>Trusted Partner for Wholesale Medicine Supply</li>
                     <li>
-                      Order medicines and health products online and get it
-                      delivered at home.
-                    </li>
-                    <li>
-                      Get your allopathic, ayurvedic, homeopathic medicines,
-                      vitamins & nutrition supplements and other health-related
-                      products delivered at home.
+                      We offer a wide range of medicines at competitive prices.
+                      With our fast and reliable service, you can rest assured
+                      that you will receive your order on time, every time.
+                      Partner with us today to experience the convenience and
+                      reliability of working with a trusted medicine wholesaler.
                     </li>
                   </ul>
                 </div>
