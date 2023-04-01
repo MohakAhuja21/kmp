@@ -43,15 +43,15 @@ exports.getAllProducts = catchAsyncError(async (req, res) => {
 
   const apiFeature = new APiFeatures(Product.find(), req.query)
     .search()
-    .filter();
+    .filter()
+    .pagination(resultPerPage);
 
   let products = await apiFeature.query;
   let filterProductCount = products.length;
 
-  apiFeature.pagination(resultPerPage);
+  // Shuffle the products randomly
+  products = products.sort(() => Math.random() - 0.5);
 
-  // const products = await Product.find(); --> both line code work same but "Product.find()" use too much then we pass the querry
-  products = await apiFeature.query.clone();
   res.status(200).json({
     success: true,
     products,
@@ -60,6 +60,7 @@ exports.getAllProducts = catchAsyncError(async (req, res) => {
     filterProductCount,
   });
 });
+
 
 // Get All Product (Admin)
 exports.getAdminProducts = catchAsyncError(async (req, res, next) => {
@@ -82,29 +83,40 @@ exports.getProductDetails = catchAsyncError(async (req, res, next) => {
   const category = product.category;
   const currentProductSaltComposition = product.salt_composition;
   const currentProductPrice = product.price;
-  
-  const substituteProducts = await Product.find({
+
+  const query = {
     category: category,
-    salt_composition: currentProductSaltComposition,
     _id: { $ne: product._id },
-    price: { $lt: currentProductPrice }
+  };
+
+  if (currentProductSaltComposition) {
+    query.salt_composition = currentProductSaltComposition;
+  }
+
+  const substituteProducts = await Product.find({
+    ...query,
+    price: { $lt: currentProductPrice },
   }).sort({ price: 1 });
-  
+
   const hasSubstituteProducts =
-    substituteProducts.length > 0 && substituteProducts[0].price < currentProductPrice;
-  
+    substituteProducts.length > 0 &&
+    substituteProducts[0].price < currentProductPrice;
+
   const lowestPrice = substituteProducts[0]?.price;
   const percentageCheaper = lowestPrice
-    ? Math.round(((currentProductPrice - lowestPrice) / currentProductPrice) * 100)
+    ? Math.round(
+        ((currentProductPrice - lowestPrice) / currentProductPrice) * 100
+      )
     : 0;
-  
-    const similarProducts = await Product.find({
-      category: category,
-      _id: { $ne: product._id },
-      salt_composition: { $ne: currentProductSaltComposition }
-    });
-  
-  const hasSimilarProducts = similarProducts.length > 0;  
+
+  const similarProducts = await Product.find({
+    ...query,
+    ...(currentProductSaltComposition
+      ? { salt_composition: { $ne: currentProductSaltComposition } }
+      : {}),
+  });
+
+  const hasSimilarProducts = similarProducts.length > 0;
 
   res.status(200).json({
     success: true,
@@ -114,10 +126,9 @@ exports.getProductDetails = catchAsyncError(async (req, res, next) => {
     lowestPrice,
     percentageCheaper,
     similarProducts,
-    hasSimilarProducts
+    hasSimilarProducts,
   });
 });
-
 
 //Update Product
 exports.updateProduct = catchAsyncError(async (req, res, next) => {
