@@ -11,15 +11,6 @@ import { Button } from "@material-ui/core";
 import RestartAltIcon from "@mui/icons-material/RestartAlt";
 import { toast } from "react-hot-toast";
 
-const categories = [
-  {
-    name: "hajmola",
-    image:
-      "https://mishry.com/wp-content/uploads/2021/09/hajmola-candy-review.jpg",
-  },
-  // add more categories here
-];
-
 const Products = () => {
   const { keyword } = useParams();
   const dispatch = useDispatch();
@@ -52,6 +43,15 @@ const Products = () => {
   const resetFilters = () => {
     setCategory("");
   };
+
+  const categories = [
+    {
+      name: "hajmola",
+      image:
+        "https://mishry.com/wp-content/uploads/2021/09/hajmola-candy-review.jpg",
+    },
+    // add more categories here
+  ];
 
   return (
     <Fragment>
