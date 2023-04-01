@@ -22,8 +22,7 @@ import {
   CLEAR_ERRORS,
 } from "../constants/productConstant";
 
-export const getProduct =
-(keyword = "", currentPage = 1, category) =>
+export const getProduct = (keyword = "", currentPage = 1, category = "") =>
   async (dispatch) => {
     try {
       dispatch({ type: ALL_PRODUCT_REQUEST });
@@ -45,6 +44,7 @@ export const getProduct =
       });
     }
   };
+
 
 export const getProductDetails = (id) => async (dispatch) => {
   try {
