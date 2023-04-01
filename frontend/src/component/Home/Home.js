@@ -38,8 +38,11 @@ const Home = () => {
                       We offer a wide range of medicines at competitive prices.
                       With our fast and reliable service, you can rest assured
                       that you will receive your order on time, every time.
-                      Partner with us today to experience the convenience and
-                      reliability of working with a trusted medicine wholesaler.
+                      Plus, with hundreds of satisfied customers and 5-star
+                      reviews, you can trust us as your go-to medicine
+                      wholesaler. Partner with us today to experience the
+                      convenience and reliability of working with a trusted
+                      medicine wholesaler.
                     </li>
                   </ul>
                 </div>
