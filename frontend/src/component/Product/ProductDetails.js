@@ -201,7 +201,7 @@ const ProductDetails = () => {
                   <>
                     <h3>
                       Similar products:{" "}
-                      <span style={{ fontWeight: "normal", backgroundColor: "whitesmoke", paddingLeft: "0.2rem", fontSize:"14px" }}>
+                      <span style={{ fontWeight: "normal", backgroundColor: "whitesmoke", paddingLeft: "0.2rem", fontSize:"14px", letterSpacing:"1px" }}>
                         {product.category}
                       </span>
                     </h3>
@@ -244,7 +244,7 @@ const ProductDetails = () => {
                     </h3>
                     {percentageCheaper && (
                       <p style={{ marginTop: "2px" }}>
-                        This medicine is{" "}
+                        This product is{" "}
                         <b className="substitute__medPrice">
                           {percentageCheaper}% cheaper
                         </b>

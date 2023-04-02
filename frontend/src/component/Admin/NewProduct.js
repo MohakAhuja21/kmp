@@ -31,7 +31,7 @@ const NewProduct = () => {
   const [images, setImages] = useState([]);
   const [imagesPreview, setImagesPreview] = useState([]);
 
-  const categories = ["pain_relief_gel"];
+  const categories = ["PainReliefGel"];
 
   useEffect(() => {
     if (error) {

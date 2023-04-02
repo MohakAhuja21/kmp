@@ -41,7 +41,7 @@ const UpdateProduct = () => {
   const [oldImages, setOldImages] = useState([]);
   const [imagesPreview, setImagesPreview] = useState([]);
 
-  const categories = ["hajmola", "augmentin", "Pantosec", "stugeron", "vertin"];
+  const categories = ["PainReliefGel"];
 
   const { id } = useParams();
 
