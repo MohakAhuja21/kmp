@@ -29,6 +29,7 @@
   font-size: 15px;
   color: #333;
 }
+
 .detailsBlock-2{
   margin-top: 2px;
   display: flex;
@@ -198,6 +199,10 @@
     margin-bottom: 3px;
     color: rgba(54, 54, 54, 0.693);
   }
+  .detailsBlock-1 >p:nth-child(4){
+    font-size: 11px;
+    color: rgba(54, 54, 54, 0.868);
+  }
   .similarProduct__box {
     overflow-x: auto;
     -webkit-overflow-scrolling: touch;
@@ -265,6 +270,9 @@
     padding: 1.3vmax;
     transition: all 0.2s ease-in-out;
   }
+  .detailsBlock-3-1-1 > button:focus {
+    outline: none;
+  }
   
   .detailsBlock-3-1-1 > button:active {
     transform: translateY(3px);
@@ -284,10 +292,12 @@
   }
   
   .selling-price {
+    text-align: left;
     white-space: nowrap;
   }
   
   .mrp-price {
+    font-size: 13px;
     text-align: right;
   }
   .addToCart_btn{
