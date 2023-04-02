@@ -154,10 +154,10 @@
 }
 
 .price-container {
-  align-items: center;
+  align-items: baseline;
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  grid-gap: 20px;
+  /* grid-gap: 20px; */
   background-color: #fff;
   padding: 20px;
   border-radius: 10px;
@@ -172,13 +172,17 @@
 .mrp-price {
   grid-column: 2 / 3;
   font-size: 18px;
-  color: #999;
+  color: #858383;;
+}
+
+.selling-price>span{
+  font-size: 28px;
 }
 
 .price-container span {
   font-weight: bold;
 }
-.price-container h2 {
+.price-container h2, h1 {
   font-weight: normal;
 }
 
@@ -274,7 +278,7 @@
   }
   .price-container {
     grid-template-columns: repeat(2, 1fr);
-    padding: 10px;
+    padding: 6px;
     border-radius: 0;
     justify-content: center;
   }

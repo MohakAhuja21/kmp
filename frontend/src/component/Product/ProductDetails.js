@@ -201,7 +201,7 @@ const ProductDetails = () => {
                   <>
                     <h3>
                       Similar products:{" "}
-                      <span style={{ fontWeight: "normal", backgroundColor: "whitesmoke", padding: "0.2rem" }}>
+                      <span style={{ fontWeight: "normal", backgroundColor: "whitesmoke", paddingLeft: "0.2rem", fontSize:"15px" }}>
                         {product.category}
                       </span>
                     </h3>
