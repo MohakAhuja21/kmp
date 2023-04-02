@@ -13,7 +13,7 @@ import { addItemsToCart } from "../../actions/cartAction";
 import { createwishlist } from "../../actions/wishlistAction";
 import MetaData from "../layout/Metadata";
 import { toast } from "react-hot-toast";
-import RecommendIcon from '@mui/icons-material/Recommend';
+import RecommendIcon from "@mui/icons-material/Recommend";
 
 const ProductDetails = () => {
   const similarProductsRef = useRef(null);
@@ -28,9 +28,8 @@ const ProductDetails = () => {
   );
 
   const [similarProducts, setSimilarProducts] = useState([]);
-const [substituteProducts, setSubstituteProducts] = useState([]);
-const [percentageCheaper, setPercentageCheaper] = useState(null);
-
+  const [substituteProducts, setSubstituteProducts] = useState([]);
+  const [percentageCheaper, setPercentageCheaper] = useState(null);
 
   useEffect(() => {
     dispatch(getProductDetails(id)).then((data) => {
@@ -39,7 +38,7 @@ const [percentageCheaper, setPercentageCheaper] = useState(null);
       setPercentageCheaper(data.percentageCheaper);
       setSubstituteProducts(data.substituteProducts);
     });
-    
+
     dispatch(getProduct());
 
     window.scrollTo(0, 0);
@@ -73,13 +72,12 @@ const [percentageCheaper, setPercentageCheaper] = useState(null);
   const addToCartHandler = () => {
     dispatch(addItemsToCart(id, quantity));
     toast.success("Item Added To Cart");
-  
+
     // scroll to similar products if the ref exists
     if (similarProductsRef && similarProductsRef.current) {
       similarProductsRef.current.scrollIntoView({ behavior: "smooth" });
     }
   };
-  
 
   const {
     loading: userloading,
@@ -146,7 +144,15 @@ const [percentageCheaper, setPercentageCheaper] = useState(null);
                 )}
               </div>
               <div className="detailsBlock-3">
-                <h1>{`₹${product.price}`}</h1>
+                <div className="price-container">
+                  <h1 className="selling-price">
+                    Selling Price: <span>{`₹${product.price}`}</span>
+                  </h1>
+                  <h2 className="mrp-price">
+                    MRP: <span>{`₹${product.mrp}`}</span>
+                  </h2>
+                </div>
+
                 <div className="detailsBlock-3-1">
                   <div className="detailsBlock-3-1-1">
                     <button onClick={decreaseQuantity}>-</button>
@@ -190,102 +196,93 @@ const [percentageCheaper, setPercentageCheaper] = useState(null);
                   {product.description}
                 </p>
               </div>
-              {product.common_side_effect && (
-                <div className="detailsBlock-5" style={{ marginTop: "15px" }}>
-                  <b
-                    style={{
-                      borderBottom: "2px solid #FFBF00",
-                      fontSize: "20px",
-                    }}
-                  >
-                    Common Side Effect :
-                  </b>
-                  <br></br>
-                  <p style={{ marginTop: "8px", fontSize: "18px" }}>
-                    {product.common_side_effect}
-                  </p>
-                </div>
-              )}
-            
-      
-            <div className="similarProduct__box">
-  {similarProducts.length > 0 && (
-    <>
-      <h3>Similar products</h3>
-      <div className="similarProducts" ref={similarProductsRef}>
-        {similarProducts.map((similarProduct) => (
-          <div
-            className="shop__pro_recom"
-            style={{ marginTop: "15px" }}
-            key={similarProduct._id}
-          >
-            <Link
-              to={`/product/${similarProduct._id}`}
-              style={{
-                textDecoration: "none",
-                color: "black",
-              }}
-            >
-              <img
-                src={similarProduct.images[0].url}
-                alt="similar product image"
-              />
-              <div className="shop__des_reco">
-                <h5>{similarProduct.name}</h5>
-                <p>₹{similarProduct.price}</p>
+              <div className="similarProduct__box">
+                {similarProducts.length > 0 && (
+                  <>
+                    <h3>
+                      Similar products:{" "}
+                      <span style={{ fontWeight: "normal", backgroundColor: "whitesmoke", padding: "0.2rem" }}>
+                        {product.category}
+                      </span>
+                    </h3>
+                    <div className="similarProducts" ref={similarProductsRef}>
+                      {similarProducts.map((similarProduct) => (
+                        <div
+                          className="shop__pro_recom"
+                          style={{ marginTop: "15px" }}
+                          key={similarProduct._id}
+                        >
+                          <Link
+                            to={`/product/${similarProduct._id}`}
+                            style={{
+                              textDecoration: "none",
+                              color: "black",
+                            }}
+                          >
+                            <img
+                              src={similarProduct.images[0].url}
+                              alt="similar product image"
+                            />
+                            <div className="shop__des_reco">
+                              <h5>{similarProduct.name}</h5>
+                              <p>₹{similarProduct.price}</p>
+                            </div>
+                          </Link>
+                        </div>
+                      ))}
+                    </div>
+                  </>
+                )}
               </div>
-            </Link>
-          </div>
-        ))}
-      </div>
-    </>
-  )}
-</div>
 
-<div className="similarProduct__box">
-  {substituteProducts.length > 0 && (
-    <>
-      <h3>
-        Recommended Substitute
-        <RecommendIcon style={{ color: "#082b79" }} />
-      </h3>
-      {percentageCheaper && (
-        <p style={{ marginTop: "2px" }}>
-          This medicine is{" "}
-          <b className="substitute__medPrice">{percentageCheaper}% cheaper</b>.
-        </p>
-      )}
-      <div className="similarProducts similarProductsSubs" ref={similarProductsRef}>
-        {substituteProducts.map((substituteProduct) => (
-          <div
-            className="shop__pro_recom"
-            style={{ marginTop: "15px" }}
-            key={substituteProduct._id}
-          >
-            <Link
-              to={`/product/${substituteProduct._id}`}
-              style={{
-                textDecoration: "none",
-                color: "black",
-              }}
-            >
-              <img
-                src={substituteProduct.images[0].url}
-                alt="substitute product image"
-              />
-              <div className="shop__des_reco">
-                <h5>{substituteProduct.name}</h5>
-                <h4>₹{substituteProduct.price}</h4>
+              <div className="similarProduct__box">
+                {substituteProducts.length > 0 && (
+                  <>
+                    <h3>
+                      Recommended Substitute
+                      <RecommendIcon style={{ color: "#082b79" }} />
+                    </h3>
+                    {percentageCheaper && (
+                      <p style={{ marginTop: "2px" }}>
+                        This medicine is{" "}
+                        <b className="substitute__medPrice">
+                          {percentageCheaper}% cheaper
+                        </b>
+                        .
+                      </p>
+                    )}
+                    <div
+                      className="similarProducts similarProductsSubs"
+                      ref={similarProductsRef}
+                    >
+                      {substituteProducts.map((substituteProduct) => (
+                        <div
+                          className="shop__pro_recom"
+                          style={{ marginTop: "15px" }}
+                          key={substituteProduct._id}
+                        >
+                          <Link
+                            to={`/product/${substituteProduct._id}`}
+                            style={{
+                              textDecoration: "none",
+                              color: "black",
+                            }}
+                          >
+                            <img
+                              src={substituteProduct.images[0].url}
+                              alt="substitute product image"
+                            />
+                            <div className="shop__des_reco">
+                              <h5>{substituteProduct.name}</h5>
+                              <h4>₹{substituteProduct.price}</h4>
+                            </div>
+                          </Link>
+                        </div>
+                      ))}
+                    </div>
+                  </>
+                )}
               </div>
-            </Link>
-          </div>
-        ))}
-      </div>
-    </>
-  )}
-</div>
-
-
             </div>
           </div>
         </Fragment>

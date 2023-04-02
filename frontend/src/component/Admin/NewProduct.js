@@ -25,13 +25,13 @@ const NewProduct = () => {
   const [manufacturer, setManufacturer] = useState("");
   const [packaging, setPackaging] = useState("");
   const [salt_composition, setSalt_composition] = useState("");
-  const [common_side_effect, setCommon_side_effect] = useState("");
+  const [mrp, setMrp] = useState("");
   const [category, setCategory] = useState("");
   const [stock, setStock] = useState(0);
   const [images, setImages] = useState([]);
   const [imagesPreview, setImagesPreview] = useState([]);
 
-  const categories = ["hajmola", "augmentin", "Pantosec", "stugeron", "vertin"];
+  const categories = ["pain_relief_gel"];
 
   useEffect(() => {
     if (error) {
@@ -53,7 +53,7 @@ const NewProduct = () => {
     myForm.set("name", name);
     myForm.set("price", price);
     myForm.set("description", description);
-    myForm.set("common_side_effect", common_side_effect);
+    myForm.set("mrp", mrp); // changed from common_side_effect
     myForm.set("description", description);
     myForm.set("packaging", packaging);
     myForm.set("salt_composition", salt_composition);
@@ -70,13 +70,16 @@ const NewProduct = () => {
   const createProductImagesChange = (e) => {
     const files = Array.from(e.target.files);
 
+    setImages([]);
+    setImagesPreview([]);
+
     files.forEach((file) => {
       const reader = new FileReader();
 
       reader.onload = () => {
         if (reader.readyState === 2) {
           setImagesPreview((old) => [...old, reader.result]);
-          setImages((old) => [...old, file]);
+          setImages((old) => [...old, reader.result]);
         }
       };
 
@@ -110,7 +113,8 @@ const NewProduct = () => {
               <AttachMoneyIcon />
               <input
                 type="number"
-                placeholder="Price"
+                placeholder="Set Selling Price"
+                step="0.01"
                 required
                 onChange={(e) => setPrice(e.target.value)}
               />
@@ -127,10 +131,10 @@ const NewProduct = () => {
               ></textarea>
             </div>
             <input
-              type="text"
-              placeholder="Common Side Effect"
-              value={common_side_effect}
-              onChange={(e) => setCommon_side_effect(e.target.value)}
+              type="number"
+              placeholder="Set Product MRP"
+              step="0.01"
+              onChange={(e) => setMrp(e.target.value)}
             />
             <input
               type="text"

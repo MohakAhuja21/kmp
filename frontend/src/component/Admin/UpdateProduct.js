@@ -34,7 +34,7 @@ const UpdateProduct = () => {
   const [manufacturer, setManufacturer] = useState("");
   const [packaging, setPackaging] = useState("");
   const [salt_composition, setSalt_composition] = useState("");
-  const [common_side_effect, setCommon_side_effect] = useState("");
+  const [mrp, setMrp] = useState("");
   const [category, setCategory] = useState("");
   const [stock, setStock] = useState(0);
   const [images, setImages] = useState([]);
@@ -58,7 +58,7 @@ const UpdateProduct = () => {
       setManufacturer(product.manufacturer);
       setPackaging(product.packaging);
       setSalt_composition(product.salt_composition);
-      setCommon_side_effect(product.common_side_effect);
+      setMrp(product.mrp);
     }
     if (error) {
       toast.error(error);
@@ -85,7 +85,7 @@ const UpdateProduct = () => {
     myForm.set("name", name);
     myForm.set("price", price);
     myForm.set("description", description);
-    myForm.set("common_side_effect", common_side_effect);
+    myForm.set("mrp", mrp); // changed from common_side_effect
     myForm.set("description", description);
     myForm.set("packaging", packaging);
     myForm.set("salt_composition", salt_composition);
@@ -102,16 +102,17 @@ const UpdateProduct = () => {
   const updateProductImagesChange = (e) => {
     const files = Array.from(e.target.files);
 
-    setImagesPreview([]);
     setImages([]);
+    setImagesPreview([]);
+    setOldImages([]);
 
     files.forEach((file) => {
       const reader = new FileReader();
 
       reader.onload = () => {
         if (reader.readyState === 2) {
-          setImagesPreview((oldPreviews) => [...oldPreviews, reader.result]);
-          setOldImages((oldImages) => [...oldImages, file]);
+          setImagesPreview((old) => [...old, reader.result]);
+          setImages((old) => [...old, reader.result]);
         }
       };
 
@@ -164,10 +165,10 @@ const UpdateProduct = () => {
               ></textarea>
             </div>
             <input
-              type="text"
-              placeholder="Common Side Effect"
-              value={common_side_effect}
-              onChange={(e) => setCommon_side_effect(e.target.value)}
+              type="number"
+              placeholder="Set Product MRP"
+              step="0.01"
+              onChange={(e) => setMrp(e.target.value)}
             />
             <input
               type="text"

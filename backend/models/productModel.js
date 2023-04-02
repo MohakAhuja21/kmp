@@ -22,9 +22,9 @@ const productSchema = mongoose.Schema({
     type:String,
     // required:false,
   },
-  common_side_effect:{
-    type:String,
-    // required:false,
+  mrp: {
+    type: Number,
+    required: [true, "Please Enter product MRP"],
   },
   price: {
     type: Number,

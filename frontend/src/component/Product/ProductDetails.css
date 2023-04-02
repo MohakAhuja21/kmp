@@ -92,11 +92,11 @@
 .wishlistButton{
   margin-left: 10px;
   cursor: pointer;
-  background-color: #FFBF00;
+  background-color: #051b4c08;
   border: 1px solid #333;
   border-radius: 5px;
   margin-top: 10px;
-  padding: 11px;
+  padding: 10px;
   font-size: 15px;
   text-transform: capitalize;
   color: black;
@@ -151,6 +151,40 @@
   border-bottom: 2px solid #FFBF00;
   font-weight: inherit;
   padding: 3px;
+}
+
+.price-container {
+  align-items: center;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-gap: 20px;
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 10px;
+}
+
+.selling-price {
+  grid-column: 1 / 2;
+  font-size: 24px;
+  color: #0072c6;
+}
+
+.mrp-price {
+  grid-column: 2 / 3;
+  font-size: 18px;
+  color: #999;
+}
+
+.price-container span {
+  font-weight: bold;
+}
+.price-container h2 {
+  font-weight: normal;
+}
+
+.price-container small {
+  font-size: 16px;
+  color: #666;
 }
 
 /* responsive */
@@ -222,18 +256,35 @@
   .detailsBlock-3 > p {
     padding: 2vmax 0;
   }
-  .detailsBlock-3-1-1 > button{
-    font-size: x-large;
-    padding: 1.2vmax;
+  .detailsBlock-3-1-1 > button {
+    font-size: larger;
+    padding: 1.3vmax;
+    transition: all 0.2s ease-in-out;
   }
+  
+  .detailsBlock-3-1-1 > button:active {
+    transform: translateY(3px);
+    box-shadow: 0 2px 0 rgba(0,0,0,0.2);
+  }
+
   .detailsBlock-3-1 {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     align-items: center;
   }
-  .detailsBlock-3>h1{
-    margin-top: 5px;
-    font-size: 36px;
+  .price-container {
+    grid-template-columns: repeat(2, 1fr);
+    padding: 10px;
+    border-radius: 0;
+    justify-content: center;
+  }
+  
+  .selling-price {
+    white-space: nowrap;
+  }
+  
+  .mrp-price {
+    text-align: right;
   }
   .addToCart_btn{
     margin-left: 5px;
