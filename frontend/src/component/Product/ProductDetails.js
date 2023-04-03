@@ -137,7 +137,12 @@ const ProductDetails = () => {
                 )}
 
                 {product.packaging && (
-                  <p style={{fontSize:"11px", color:"rgba(54, 54, 54, 0.868)"}}>
+                  <p
+                    style={{
+                      fontSize: "11px",
+                      color: "rgba(54, 54, 54, 0.868)",
+                    }}
+                  >
                     <b>Packaging</b>:&nbsp;
                     {product.packaging}
                   </p>
@@ -151,6 +156,12 @@ const ProductDetails = () => {
                   <h2 className="mrp-price">
                     MRP: <span>{`₹${product.mrp}`}</span>
                   </h2>
+                  {/* <h3 className="margin-price">
+                    Margin:{" "}
+                    <span>{`${Math.floor(
+                      ((product.mrp - product.price) / product.mrp) * 100
+                    )}%`}</span>
+                  </h3> */}
                 </div>
 
                 <div className="detailsBlock-3-1">
@@ -174,11 +185,18 @@ const ProductDetails = () => {
                 <p>
                   Status:
                   <b
-                    style={{ marginLeft: "6px", fontSize: "18px" }}
+                    style={{ marginLeft: "6px", fontSize: "20px" }}
                     className={product.stock < 1 ? "redColor" : "greenColor"}
                   >
                     {product.stock < 1 ? "Out Of Stock" : "InStock"}
                   </b>
+
+                  <h3 className="margin-price">
+                    Margin:{" "}
+                    <span>{`${Math.floor(
+                      ((product.mrp - product.price) / product.mrp) * 100
+                    )}%`}</span>
+                  </h3>
                 </p>
               </div>
 
@@ -201,7 +219,15 @@ const ProductDetails = () => {
                   <>
                     <h3>
                       Similar products:{" "}
-                      <span style={{ fontWeight: "normal", backgroundColor: "whitesmoke", paddingLeft: "0.2rem", fontSize:"14px", letterSpacing:"1px" }}>
+                      <span
+                        style={{
+                          fontWeight: "normal",
+                          backgroundColor: "whitesmoke",
+                          paddingLeft: "0.2rem",
+                          fontSize: "14px",
+                          letterSpacing: "1px",
+                        }}
+                      >
                         {product.category}
                       </span>
                     </h3>

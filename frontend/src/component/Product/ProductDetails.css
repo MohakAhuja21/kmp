@@ -68,9 +68,27 @@
   border-top: 1px solid rgba(0, 0, 0, 0.205);
   border-bottom: 1px solid rgba(0, 0, 0, 0.205);
   padding: 1vmax 0;
-  color: rgba(0, 0, 0, 0.651);
+  color: rgba(0, 0, 0, 0.593);
   margin: 1vmax 0;
+  display: flex;
+  align-items: baseline;
 }
+
+.margin-price {
+  font-size: 14px;
+  color: rgba(0, 0, 0, 0.593);
+  margin-top: 0;
+  font-weight: normal;
+  text-align: right;
+  margin-left: auto;
+  width: auto;
+}
+.margin-price span {
+  font-weight: bold;
+  font-size: 20px;
+  color: green;
+}
+
 .addToCart_btn
 {
   cursor: pointer;
@@ -260,6 +278,10 @@
   }
   .detailsBlock-3 > p {
     padding: 2vmax 0;
+    font-size: large;
+  }
+  .detailsBlock-3 > p > h3{
+    font-size: large;
   }
   .detailsBlock-3-1-1 > button {
     font-size: larger;
