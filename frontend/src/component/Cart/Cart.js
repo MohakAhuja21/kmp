@@ -38,10 +38,6 @@ const Cart = () => {
     navigate("/login?redirect=/shipping");
   };
 
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  });
-
   const [isOpen, setIsOpen] = useState(false);
 
   const toggleSection = () => {
@@ -92,9 +88,9 @@ const Cart = () => {
                       +
                     </button>
                   </div>
-                  <p className="cartSubtotal">{`₹${
+                  <p className="cartSubtotal">{`₹${(
                     item.price * item.quantity
-                  }`}</p>
+                  ).toFixed(2)}`}</p>
                 </div>
               ))}
 
@@ -102,12 +98,11 @@ const Cart = () => {
               <div></div>
               <div className="cartGrossTotalBox">
                 <p>Gross Total</p>
-                <p>{`₹${cartItems.reduce(
-                  (acc, item) => acc + item.quantity * item.price,
-                  0
-                )}`}</p>
-                {/* Using reduce we can run it for evert object  */}
+                <p>{`₹${cartItems
+                  .reduce((acc, item) => acc + item.quantity * item.price, 0)
+                  .toFixed(2)}`}</p>
               </div>
+
               <div></div>
               <div className="checkOutBtn">
                 <button onClick={checkOutHandler}>Order Now</button>
