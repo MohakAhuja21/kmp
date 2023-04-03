@@ -137,7 +137,7 @@ const ProductDetails = () => {
                 )}
 
                 {product.packaging && (
-                  <p>
+                  <p style={{fontSize:"11px", color:"rgba(54, 54, 54, 0.868)"}}>
                     <b>Packaging</b>:&nbsp;
                     {product.packaging}
                   </p>

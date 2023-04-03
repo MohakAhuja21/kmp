@@ -199,10 +199,6 @@
     margin-bottom: 3px;
     color: rgba(54, 54, 54, 0.693);
   }
-  .detailsBlock-1 >p:nth-child(4){
-    font-size: 11px;
-    color: rgba(54, 54, 54, 0.868);
-  }
   .similarProduct__box {
     overflow-x: auto;
     -webkit-overflow-scrolling: touch;
