@@ -61,7 +61,6 @@ exports.getAllProducts = catchAsyncError(async (req, res) => {
   });
 });
 
-
 // Get All Product (Admin)
 exports.getAdminProducts = catchAsyncError(async (req, res, next) => {
   const products = await Product.find();
@@ -93,9 +92,20 @@ exports.getProductDetails = catchAsyncError(async (req, res, next) => {
     query.salt_composition = currentProductSaltComposition;
   }
 
+  const similarProducts = await Product.find({
+    ...query,
+    ...(currentProductSaltComposition
+      ? { salt_composition: { $ne: currentProductSaltComposition } }
+      : {}),
+  });
+
+  const hasSimilarProducts = similarProducts.length > 0;
+  const similarProductIds = similarProducts.map((p) => p._id);
+
   const substituteProducts = await Product.find({
     ...query,
     price: { $lt: currentProductPrice },
+    _id: { $nin: similarProductIds },
   }).sort({ price: 1 });
 
   const hasSubstituteProducts =
@@ -108,15 +118,6 @@ exports.getProductDetails = catchAsyncError(async (req, res, next) => {
         ((currentProductPrice - lowestPrice) / currentProductPrice) * 100
       )
     : 0;
-
-  const similarProducts = await Product.find({
-    ...query,
-    ...(currentProductSaltComposition
-      ? { salt_composition: { $ne: currentProductSaltComposition } }
-      : {}),
-  });
-
-  const hasSimilarProducts = similarProducts.length > 0;
 
   res.status(200).json({
     success: true,
