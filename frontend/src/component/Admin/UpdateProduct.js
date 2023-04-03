@@ -41,7 +41,7 @@ const UpdateProduct = () => {
   const [oldImages, setOldImages] = useState([]);
   const [imagesPreview, setImagesPreview] = useState([]);
 
-  const categories = ["PainReliefGel", "CoughSyrup"];
+  const categories = ["PainReliefGel", "Syrup"];
 
   const { id } = useParams();
 

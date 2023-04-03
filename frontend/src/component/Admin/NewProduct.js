@@ -31,7 +31,7 @@ const NewProduct = () => {
   const [images, setImages] = useState([]);
   const [imagesPreview, setImagesPreview] = useState([]);
 
-  const categories = ["PainReliefGel", "CoughSyrup"];
+  const categories = ["PainReliefGel", "Syrup"];
 
   useEffect(() => {
     if (error) {
