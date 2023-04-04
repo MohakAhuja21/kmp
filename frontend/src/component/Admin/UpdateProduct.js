@@ -61,6 +61,7 @@ const UpdateProduct = () => {
       setPackaging(product.packaging);
       setSalt_composition(product.salt_composition);
       setMrp(product.mrp);
+      setUnit(product.unit);
     }
     if (error) {
       toast.error(error);
