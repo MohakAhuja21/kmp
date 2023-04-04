@@ -195,7 +195,7 @@
 
 .selling-price>span{
   color: green;
-  font-size: 28px;
+  font-size: 29px;
 }
 
 .price-container span {
@@ -306,7 +306,7 @@
     grid-template-columns: repeat(2, 1fr);
     padding: 6px;
     border-radius: 0;
-    justify-content: center;
+    align-items: center;
   }
   
   .selling-price {
