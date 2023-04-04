@@ -1,4 +1,5 @@
 import axios from "axios";
+import { setupCache } from 'axios-cache-adapter';
 
 import {
   ALL_PRODUCT_FAIL,
@@ -22,6 +23,14 @@ import {
   CLEAR_ERRORS,
 } from "../constants/productConstant";
 
+const cache = setupCache({
+  maxAge: 15 * 60 * 1000, // cache for 15 minutes
+});
+
+const api = axios.create({
+  adapter: cache.adapter,
+});
+
 export const getProduct = (keyword = "", currentPage = 1, category = "") =>
   async (dispatch) => {
     try {
@@ -31,7 +40,7 @@ export const getProduct = (keyword = "", currentPage = 1, category = "") =>
         link = `/api/v1/products?keyword=${keyword}&page=${currentPage}&category=${category}`;
       }
 
-      const { data } = await axios.get(link);
+      const { data } = await api.get(link);
 
       dispatch({
         type: ALL_PRODUCT_SUCCESS,
@@ -46,26 +55,25 @@ export const getProduct = (keyword = "", currentPage = 1, category = "") =>
   };
 
 
-export const getProductDetails = (id) => async (dispatch) => {
-  try {
-    dispatch({ type: PRODUCT_DETAILS_REQUEST });
-
-    const { data } = await axios.get(`/api/v1/product/${id}`);
-
-    dispatch({
-      type: PRODUCT_DETAILS_SUCCESS,
-      payload: data.product,
-    });
-
-    return data; 
-
-  } catch (error) {
-    dispatch({
-      type: PRODUCT_DETAILS_FAIL,
-      payload: error.response.data.message,
-    });
-  }
-};
+  export const getProductDetails = (id) => async (dispatch) => {
+    try {
+      dispatch({ type: PRODUCT_DETAILS_REQUEST });
+  
+      const { data } = await api.get(`/api/v1/product/${id}`);
+  
+      dispatch({
+        type: PRODUCT_DETAILS_SUCCESS,
+        payload: data.product,
+      });
+  
+      return data;
+    } catch (error) {
+      dispatch({
+        type: PRODUCT_DETAILS_FAIL,
+        payload: error.response.data.message,
+      });
+    }
+  };
 
 // Get All Products For Admin
 export const getAdminProduct = () => async (dispatch) => {
