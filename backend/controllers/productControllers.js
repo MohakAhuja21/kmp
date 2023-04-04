@@ -83,10 +83,24 @@ exports.getProductDetails = catchAsyncError(async (req, res, next) => {
   const currentProductSaltComposition = product.salt_composition;
   const currentProductPrice = product.price;
 
-  const query = {
-    category: category,
+  let query = {
     _id: { $ne: product._id },
   };
+
+  if (category) {
+    query.category = category;
+  } else {
+    return res.status(200).json({
+      success: true,
+      product,
+      similarProducts: [],
+      hasSimilarProducts: false,
+      substituteProducts: [],
+      hasSubstituteProducts: false,
+      lowestPrice: null,
+      percentageCheaper: null,
+    });
+  }
 
   if (currentProductSaltComposition) {
     query.salt_composition = currentProductSaltComposition;
