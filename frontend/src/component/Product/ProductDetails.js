@@ -151,17 +151,24 @@ const ProductDetails = () => {
               <div className="detailsBlock-3">
                 <div className="price-container">
                   <h1 className="selling-price">
-                    Selling Price: <span>{`₹${product.price}`}</span>
+                    Selling Price:{" "}
+                    <span>
+                      {`₹${product.price}`}
+                      {product.unit && (
+                        <sup
+                          style={{
+                            color: "rgba(0, 0, 0, 0.593)",
+                            fontSize: "12px",
+                          }}
+                        >
+                          ({product.unit})
+                        </sup>
+                      )}
+                    </span>
                   </h1>
                   <h2 className="mrp-price">
                     MRP: <span>{`₹${product.mrp}`}</span>
                   </h2>
-                  {/* <h3 className="margin-price">
-                    Margin:{" "}
-                    <span>{`${Math.floor(
-                      ((product.mrp - product.price) / product.mrp) * 100
-                    )}%`}</span>
-                  </h3> */}
                 </div>
 
                 <div className="detailsBlock-3-1">
@@ -190,7 +197,6 @@ const ProductDetails = () => {
                   >
                     {product.stock < 1 ? "Out Of Stock" : "InStock"}
                   </b>
-
                   <h3 className="margin-price">
                     Margin:{" "}
                     <span>{`${Math.floor(

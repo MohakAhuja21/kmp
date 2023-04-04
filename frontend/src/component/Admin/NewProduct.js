@@ -31,6 +31,8 @@ const NewProduct = () => {
   const [images, setImages] = useState([]);
   const [imagesPreview, setImagesPreview] = useState([]);
 
+  const [unit, setUnit] = useState("");
+
   const categories = ["PainReliefGel", "Syrup"];
 
   useEffect(() => {
@@ -52,6 +54,7 @@ const NewProduct = () => {
 
     myForm.set("name", name);
     myForm.set("price", price);
+    myForm.set("unit", unit); //for accepting unit
     myForm.set("description", description);
     myForm.set("mrp", mrp); // changed from common_side_effect
     myForm.set("description", description);
@@ -119,6 +122,12 @@ const NewProduct = () => {
                 onChange={(e) => setPrice(e.target.value)}
               />
             </div>
+            <select value={unit} onChange={(e) => setUnit(e.target.value)}>
+              <option value="">Select unit</option>
+              <option value="per pcs">per pcs</option>
+              <option value="per bottle">per bottle</option>
+              <option value="per strip">per strip</option>
+            </select>
 
             <div>
               <DescriptionIcon />

@@ -26,6 +26,11 @@ const productSchema = mongoose.Schema({
     type: Number,
     required: [true, "Please Enter product MRP"],
   },
+  unit: { 
+    type: String, 
+    required: [true, "Please specify the unit of the product"], 
+    enum: ['per pcs', 'per bottle', 'per strip'],
+ },
   price: {
     type: Number,
     required: [true, "Please Enter product Price"],
@@ -45,7 +50,7 @@ const productSchema = mongoose.Schema({
   ],
   category: {
     type: String,
-    required: [true, "Please Enter product Category"],
+    // required: [true, "Please Enter product Category"],
   },
   stock: {
     type: Number,

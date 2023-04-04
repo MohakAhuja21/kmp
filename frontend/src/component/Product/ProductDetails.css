@@ -176,7 +176,6 @@
   align-items: baseline;
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  /* grid-gap: 20px; */
   background-color: #fff;
   padding: 20px;
   border-radius: 10px;
@@ -185,16 +184,17 @@
 .selling-price {
   grid-column: 1 / 2;
   font-size: 24px;
-  color: #0072c6;
+  color: rgba(0, 0, 0, 0.593);
 }
 
 .mrp-price {
   grid-column: 2 / 3;
   font-size: 18px;
-  color: #858383;;
+  color:rgba(0, 0, 0, 0.593);
 }
 
 .selling-price>span{
+  color: green;
   font-size: 28px;
 }
 
