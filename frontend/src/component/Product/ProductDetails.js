@@ -14,6 +14,7 @@ import { createwishlist } from "../../actions/wishlistAction";
 import MetaData from "../layout/Metadata";
 import { toast } from "react-hot-toast";
 import RecommendIcon from "@mui/icons-material/Recommend";
+import LockIcon from "@material-ui/icons/Lock";
 
 const ProductDetails = () => {
   const similarProductsRef = useRef(null);
@@ -30,6 +31,7 @@ const ProductDetails = () => {
   const [similarProducts, setSimilarProducts] = useState([]);
   const [substituteProducts, setSubstituteProducts] = useState([]);
   const [percentageCheaper, setPercentageCheaper] = useState(null);
+  const [showMessage, setShowMessage] = useState(false);
 
   useEffect(() => {
     dispatch(getProductDetails(id)).then((data) => {
@@ -96,8 +98,13 @@ const ProductDetails = () => {
 
       toast.success("Product added in wishlist");
     } else {
-      toast.show("Login to add Product into Wishlist");
+      toast.error("Login to add Product into Wishlist");
     }
+  };
+
+  const handleClick = () => {
+    setShowMessage(true);
+    toast.error("Please login/register to view.");
   };
 
   return (
@@ -150,22 +157,36 @@ const ProductDetails = () => {
               </div>
               <div className="detailsBlock-3">
                 <div className="price-container">
-                  <h1 className="selling-price">
-                    Selling Price:{" "}
-                    <span>
-                      {`₹${product.price}`}
-                      {product.unit && (
-                        <sup
+                  <>
+                    <h1 className="selling-price">
+                      Selling Price:{" "}
+                      {isAuthenticated ? (
+                        <span>
+                          {`₹${product.price}`}
+                          {product.unit && (
+                            <sup
+                              style={{
+                                color: "rgba(0, 0, 0, 0.593)",
+                                fontSize: "12px",
+                              }}
+                            >
+                              ({product.unit})
+                            </sup>
+                          )}
+                        </span>
+                      ) : (
+                        <LockIcon
                           style={{
-                            color: "rgba(0, 0, 0, 0.593)",
-                            fontSize: "12px",
+                            color: "red",
+                            position: "relative",
+                            top: "2px",
+                            cursor: "pointer",
                           }}
-                        >
-                          ({product.unit})
-                        </sup>
+                          onClick={handleClick}
+                        />
                       )}
-                    </span>
-                  </h1>
+                    </h1>
+                  </>
                   <h2 className="mrp-price">
                     MRP: <span>{`₹${product.mrp}`}</span>
                   </h2>
@@ -197,12 +218,26 @@ const ProductDetails = () => {
                   >
                     {product.stock < 1 ? "Out Of Stock" : "InStock"}
                   </b>
-                  <h3 className="margin-price">
-                    Margin:{" "}
-                    <span>{`${Math.floor(
-                      ((product.mrp - product.price) / product.mrp) * 100
-                    )}%`}</span>
-                  </h3>
+                  <>
+                    <h3 className="margin-price">
+                      Margin:{" "}
+                      {isAuthenticated ? (
+                        <span>{`${Math.floor(
+                          ((product.mrp - product.price) / product.mrp) * 100
+                        )}%`}</span>
+                      ) : (
+                        <LockIcon
+                          style={{
+                            color: "red",
+                            position: "relative",
+                            top: "5px",
+                            cursor: "pointer",
+                          }}
+                          onClick={handleClick}
+                        />
+                      )}
+                    </h3>
+                  </>
                 </p>
               </div>
 

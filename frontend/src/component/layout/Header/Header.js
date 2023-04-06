@@ -3,7 +3,6 @@ import { Link, useNavigate } from "react-router-dom";
 import "./Header.css";
 import ShoppingBasketRoundedIcon from "@mui/icons-material/ShoppingBasketRounded";
 import { useDispatch, useSelector } from "react-redux";
-import SearchIcon from "@mui/icons-material/Search";
 import { logout } from "../../../actions/userAction";
 import FavoriteIcon from "@mui/icons-material/Favorite";
 import { toast } from "react-hot-toast";
@@ -104,7 +103,7 @@ function Header() {
           value={keyword}
           onChange={handleInputChange}
         />
-        <SearchIcon className="header__searchIcon" />
+        {/* <SearchIcon className="header__searchIcon" /> */}
         {suggestions.length > 0 && keyword.trim() !== "" && (
           <ul className="header__searchSuggestion">
             {suggestions.map((suggestion) => (

@@ -55,17 +55,6 @@
   font-size: 15px;
   cursor: pointer;
 }
-
-.header__searchIcon{
-  background: #FFBF00;
-  color: white;
-  padding: 5px;
-  cursor: pointer;
-  position: absolute;
-  right: 10px;
-  top: 50%;
-  transform: translateY(-50%);
-}
 .header__search{
   position: relative;
   padding: 10px;
@@ -253,16 +242,6 @@
     border: none; /* remove the border from the input field */
     flex-grow: 1; /* make the input field expand to fill the available space */
     outline: none;
-  }
-  
-  .header__searchIcon{
-    background: #FFBF00; /* make the background transparent */
-    color: white;
-    padding: 9.6px;
-    cursor: pointer;
-    border-radius: 10px; /* round all corners of the search icon */
-    border: none; /* remove the border from the search icon */
-    overflow: hidden;
   }
   
   .header_optionCartMobile{
