@@ -35,8 +35,8 @@ const Profile = () => {
             </div>
             <div className="profileDeatils">
               <div>
-                <h4>Full Name</h4>
-                <p>{user.name}</p>
+                <h4>Name</h4>
+                <p>{user.email.split('@')[0].replace(/[0-9]/g, '')}</p>
               </div>
               <div>
                 <h4>Email</h4>

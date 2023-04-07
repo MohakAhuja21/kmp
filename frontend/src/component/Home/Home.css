@@ -65,6 +65,9 @@
   text-transform: capitalize;
   margin-top: 80px;
   margin-bottom: 15px;
+  font-weight: bold;
+  color: white;
+  text-shadow: 1px 1px 3px rgba(255, 191, 0, 0.5);
 }
 
 .movie-des{

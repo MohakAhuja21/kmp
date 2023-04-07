@@ -24,11 +24,11 @@ const LoginSignup = () => {
   const [loginPassword, setLoginPassword] = useState("");
 
   const [user, setUser] = useState({
-    name: "",
+    gst: "",
     email: "",
     password: "",
   });
-  const { name, email, password } = user;
+  const { gst, email, password } = user;
 
   const [avatar, setAvatar] = useState(Profile);
   const [avatarPreview, setAvatarPreview] = useState(Profile);
@@ -68,7 +68,7 @@ const LoginSignup = () => {
   const registerSubmit = (e) => {
     e.preventDefault();
     const myForm = new FormData();
-    myForm.set("name", name);
+    myForm.set("gst", gst);
     myForm.set("email", email);
     myForm.set("password", password);
     myForm.set("avatar", avatar);
@@ -148,12 +148,12 @@ const LoginSignup = () => {
             <div className="signUpName">
               <TextField
                 fullWidth
-                label="Name"
+                label="Gst"
                 type="text"
-                placeholder="Please Enter FullName"
+                placeholder="Please Enter your GST Number"
                 required
-                name="name"
-                value={name}
+                name="gst"
+                value={gst}
                 onChange={registerDataChange}
               />
             </div>

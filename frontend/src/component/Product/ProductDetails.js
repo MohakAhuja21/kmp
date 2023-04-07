@@ -51,22 +51,24 @@ const ProductDetails = () => {
     }
   }, [dispatch, id, error]);
 
-  const [quantity, setQuantity] = useState(1);
+  const [quantity, setQuantity] = useState(4);
 
   const increaseQuantity = () => {
-    if (product.stock <= quantity) {
+    if (product.stock <= quantity + 1) {
       toast.error(
-        `We currently have ${product.stock} in stock.\n If you want more, please wait. Sorry for the inconvenience.\n Else wishlist and we will notify you !`
+        `We currently have ${product.stock} in stock.\n If you want more, please wait. Sorry for the inconvenience.\n Else wishlist and we will notify you!`
       );
       return;
     }
-
-    const qty = quantity + 1;
+    const qty = quantity + 2; // add 2 to the current quantity
     setQuantity(qty);
   };
 
   const decreaseQuantity = () => {
-    if (1 >= quantity) return;
+    if (quantity <= 4) {
+      toast.error("Quantity cannot be less than 4.");
+      return;
+    }
     const qty = quantity - 1;
     setQuantity(qty);
   };

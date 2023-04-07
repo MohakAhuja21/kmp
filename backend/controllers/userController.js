@@ -8,16 +8,25 @@ const cloudinary = require("cloudinary");
 
 //Register a User
 exports.registerUser = catchAsyncError(async (req, res, next) => {
+
+   // Define a regular expression to match the GST format
+   const gstRegex = /^[0-9]{2}[A-Z]{5}[0-9]{4}[A-Z]{1}[1-9A-Z]{1}[Z]{1}[0-9A-Z]{1}$/;
+
+   // Check if the entered GST matches the expected format
+   if (!gstRegex.test(req.body.gst)) {
+     return next(new ErrorHandler("Invalid GST number", 400));
+   }
+
   const myCloud = await cloudinary.v2.uploader.upload(req.body.avatar, {
     folder: "avatars",
     width: 150,
     crop: "scale",
   });
 
-  const { name, email, password } = req.body;
+  const { gst, email, password } = req.body;
 
   const user = await User.create({
-    name,
+    gst,
     email,
     password,
     avatar: {
@@ -31,15 +40,16 @@ exports.registerUser = catchAsyncError(async (req, res, next) => {
     await sendEmail({
       email: user.email,
       subject: "Welcome to our website",
-      message: `${user.name},
+      // message: `${user.name},
+      message: `
 We are delighted to welcome you as a registered customer on our website! We appreciate your interest in our services and look forward to serving you.\n
 As a token of our appreciation, we would like to offer you a special discount coupon that you can use on your first purchase with us.\n
 The coupon code is [ health ], and it entitles you to [ upto 15 ]% off on your order.
 To redeem your coupon, simply enter the code at the checkout page when making your purchase. Please note that the coupon is valid for a limited time, so we encourage you to take advantage of this offer soon.\n
 Thank you again for choosing our website. If you have any questions or concerns, please do not hesitate to contact us at [ 9213632255 ]`,
-      data: {
-        name: user.name,
-      },
+      // data: {
+      //   name: user.name,
+      // },
     });
   } catch (error) {
     return next(new ErrorHandler("Error sending email", 500));

@@ -5,10 +5,10 @@ const jwt = require("jsonwebtoken");
 const crypto = require("crypto");
 
 const userSchema = new mongoose.Schema({
-  name: {
+  gst: {
     type: String,
-    required: [true, "Please Enter Your Name"],
-    maxlength: [30, "Name cannot exceed 30 charcters"],
+    required: [true, "Please Enter Your GST Number"],
+    unique: true,
   },
   email: {
     type: String,

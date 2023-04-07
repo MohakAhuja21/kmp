@@ -140,7 +140,9 @@ function Header() {
             to={user?.role === "admin" ? "/admin/dashboard" : "/account"}
           >
             <div className="header__option">
-              <span className="header__optionLineOne">{user?.name}</span>
+              <span className="header__optionLineOne">
+                {user?.email.split("@")[0].replace(/[0-9]/g, "")}
+              </span>
               <span className="header__optionLineTwo">
                 {user?.role === "admin" ? "Dashboard" : "Your profile"}
                 <button className="logout-btn" onClick={logoutUser}>
