@@ -8,11 +8,13 @@ import RemoveShoppingCartIcon from "@material-ui/icons/RemoveShoppingCart";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import MetaData from "../layout/Metadata";
+import LockIcon from "@material-ui/icons/Lock";
 
 const Cart = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const { cartItems } = useSelector((state) => state.cart);
+  const { isAuthenticated } = useSelector((state) => state.user);
 
   const increaseQuantity = (id, quantity, stock) => {
     const newQty = quantity + 1;
@@ -88,9 +90,18 @@ const Cart = () => {
                       +
                     </button>
                   </div>
-                  <p className="cartSubtotal">{`₹${(
-                    item.price * item.quantity
-                  ).toFixed(2)}`}</p>
+                  <p className="cartSubtotal">
+                    {isAuthenticated ? (
+                      `₹${(item.price * item.quantity).toFixed(2)}`
+                    ) : (
+                      <div
+                        style={{ display: "flex", justifyContent: "flex-end" }}
+                        className="cartSubtotal__login"
+                      >
+                        <LockIcon style={{color:"#051b4cee"}} />
+                      </div>
+                    )}
+                  </p>
                 </div>
               ))}
 
@@ -98,11 +109,18 @@ const Cart = () => {
               <div></div>
               <div className="cartGrossTotalBox">
                 <p>Gross Total</p>
-                <p>{`₹${cartItems
-                  .reduce((acc, item) => acc + item.quantity * item.price, 0)
-                  .toFixed(2)}`}</p>
+                {isAuthenticated ? (
+                  <p>{`₹${cartItems
+                    .reduce((acc, item) => acc + item.quantity * item.price, 0)
+                    .toFixed(2)}`}</p>
+                ) : (
+                  <div>
+                    <LockIcon
+                      style={{ color: "#051b4cee", marginLeft: "5px" }}
+                    />
+                  </div>
+                )}
               </div>
-
               <div></div>
               <div className="checkOutBtn">
                 <button onClick={checkOutHandler}>Order Now</button>
