@@ -46,11 +46,26 @@ const Products = () => {
 
   const categories = [
     {
-      name: "hajmola",
+      name: "Syrup",
       image:
-        "https://mishry.com/wp-content/uploads/2021/09/hajmola-candy-review.jpg",
+        "https://hips.hearstapps.com/hmg-prod/images/cough-syrup-1588614852.png",
     },
-    // add more categories here
+    {
+      name: "Ors",
+      image:
+        "https://rukminim1.flixcart.com/image/850/850/kpinwy80/energy-sport-drink-mix/d/v/4/ors-ready-to-drink-oral-rehydration-contains-vital-electrolytes-original-imag3qzbf4x3hvgj.jpeg?q=20",
+    },
+    {
+      name: "EyeDrops",
+      image:
+        "https://www.warbyparker.com/learn/wp-content/uploads/2022/10/eye-drops-for-dry-eyes-hero.jpg",
+    },
+    {
+      name: "Ointment",
+      image:
+        "https://hips.hearstapps.com/netdoctor.cdnds.net/15/51/1450185971-g-corticosteroid-478186895.jpg",
+    },
+    
   ];
 
   return (

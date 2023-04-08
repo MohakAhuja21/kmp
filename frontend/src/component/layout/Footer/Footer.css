@@ -14,49 +14,7 @@ border-bottom: 1px solid #ffbf00;
   text-align: center;
   font-style: italic;
   color: whitesmoke;
-}
-
-.footer__formCon{
-  border-bottom: 1px solid whitesmoke;
-  width: fit-content;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.footer__form {
-  color: white;
-  padding: 0.75rem 0;
-  border: none;
-  background: none;
-  width: 270px;
-  border-radius: 0;
-  font-size: 1.05rem;
-  caret-color: whitesmoke;
-  transition: all 0.2s ease;
-}
-.footer__form:focus {
-  width: 300px;
-  outline: none;
-}
-::placeholder {
-  color: lightgray;
-}
-
-.row-newsletter {
-  flex-wrap: wrap;
-  display: flex;
-  justify-content: center;
-}
-
-.footer__button {
-  cursor: pointer;
-  background-color: #ffbf00;
-  border: none;
-  border-radius: 2px;
-  display: flex;
-  align-items: center;
-  color: white;
+  font-size: 20px;
 }
 
 .footer .row {
@@ -94,8 +52,7 @@ border-bottom: 1px solid #ffbf00;
 
 @media (max-width: 720px) {
   .footer {
-    text-align: left;
-    padding: 5%;
+    padding: 4%;
   }
   .footer .row ul li {
     display: block;

@@ -190,7 +190,7 @@ exports.updatePassword = catchAsyncError(async (req, res, next) => {
 //Update User Profile
 exports.updateProfile = catchAsyncError(async (req, res, next) => {
   const newUserData = {
-    name: req.body.name,
+    // name: req.body.name,
     email: req.body.email,
   };
 

@@ -18,7 +18,7 @@ const UpdateProfile = () => {
   const { user } = useSelector((state) => state.user);
   const { error, isUpdated, loading } = useSelector((state) => state.profile);
 
-  const [name, setName] = useState("");
+  // const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [avatar, setAvatar] = useState(Profile);
   const [avatarPreview, setAvatarPreview] = useState(Profile);
@@ -26,7 +26,7 @@ const UpdateProfile = () => {
   const updateProfileSubmit = (e) => {
     e.preventDefault();
     const myForm = new FormData();
-    myForm.set("name", name);
+    // myForm.set("name", name);
     myForm.set("email", email);
     myForm.set("avatar", avatar);
     dispatch(updateProfile(myForm));
@@ -45,7 +45,7 @@ const UpdateProfile = () => {
 
   useEffect(() => {
     if (user) {
-      setName(user.name);
+      // setName(user.name);
       setEmail(user.email);
       setAvatarPreview(user.avatar.url);
     }
@@ -87,7 +87,7 @@ inputs.forEach(input => {
                 encType="multipart/form-data"
                 onSubmit={updateProfileSubmit}
               >
-                <div className="updateProfileName">
+                {/* <div className="updateProfileName">
                   <PersonIcon />
                   <TextField
                   id="outlined-required"
@@ -99,7 +99,7 @@ inputs.forEach(input => {
                     value={name}
                     onChange={(e) => setName(e.target.value)}
                   />
-                </div>
+                </div> */}
                 <div className="updateProfileEmail">
                   <EmailIcon />
                   <TextField
