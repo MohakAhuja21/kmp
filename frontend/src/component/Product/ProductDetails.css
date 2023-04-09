@@ -226,6 +226,7 @@
     display: flex;
     flex-wrap: nowrap;
     padding: 10px 0;
+    width:42vh;
   }
   
   .shop__pro_recom {
