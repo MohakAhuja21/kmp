@@ -4,7 +4,7 @@ import "./Footer.css";
 const Footer = () => {
   return (
     <footer id="footer" className="footer">
-      <h2>All Medical Supplies Within <b>Hours.</b></h2>
+      <h2>Medical Supplies Within <b>Hours.</b></h2>
 
       <div className="row">
         {/* change a to link *imp */}
