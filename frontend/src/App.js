@@ -27,6 +27,7 @@ import { store } from "./store";
 import { Toaster } from "react-hot-toast";
 import Loader from "./component/layout/Loader/Loader";
 import PrescriptionManagement from "./component/Home/Prescription";
+import Contact from "./component/Home/Contact";
 
 const Products = React.lazy(() => import("./component/Product/Products"));
 const ProductDetails = React.lazy(() =>
@@ -52,6 +53,7 @@ function App() {
       <React.Suspense fallback={<Loader />}>
         <Routes>
           <Route path="/" element={<Home />} />
+          <Route path="/contact" element={<Contact />} />
           <Route path="/prescription" element={<PrescriptionManagement />} />
           <Route path="/product/:id" element={<ProductDetails />} />
           <Route path="/products" element={<Products />} />
