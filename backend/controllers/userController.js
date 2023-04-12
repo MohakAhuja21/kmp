@@ -9,13 +9,20 @@ const cloudinary = require("cloudinary");
 //Register a User
 exports.registerUser = catchAsyncError(async (req, res, next) => {
 
-   // Define a regular expression to match the GST format
-   const gstRegex = /^[0-9]{2}[A-Z]{5}[0-9]{4}[A-Z]{1}[1-9A-Z]{1}[Z]{1}[0-9A-Z]{1}$/;
-
-   // Check if the entered GST matches the expected format
-   if (!gstRegex.test(req.body.gst)) {
-     return next(new ErrorHandler("Invalid GST number", 400));
-   }
+ const restrictedGstNumbers = ['22AAAAA0000A1Z5','22AAAAA0000A1Z6', '07AAAAA0000A1Z8', '07FFFFFO000B2Z9', '36BBBBB0000B1Z5'];
+  
+  // Define a regular expression to match the GST format
+  const gstRegex = /^[0-9]{2}[A-Z]{5}[0-9]{4}[A-Z]{1}[1-9A-Z]{1}[Z]{1}[0-9A-Z]{1}$/;
+  
+  // Check if the entered GST matches the expected format
+  if (!gstRegex.test(req.body.gst)) {
+    return next(new ErrorHandler("Invalid GST number", 400));
+  }
+  
+  // Check if the entered GST is one of the restricted GST numbers
+  if (restrictedGstNumbers.includes(req.body.gst)) {
+    return next(new ErrorHandler("This GST number is not allowed", 400));
+    }
 
   const myCloud = await cloudinary.v2.uploader.upload(req.body.avatar, {
     folder: "avatars",

@@ -10,6 +10,7 @@ import { toast } from "react-hot-toast";
 function Header() {
   const { isAuthenticated, user } = useSelector((state) => state.user);
   const { cartItems } = useSelector((state) => state.cart);
+  const { wishlist } = useSelector((state) => state.wishlist_data);
   const dispatch = useDispatch();
 
   // mobile navbar
@@ -18,6 +19,7 @@ function Header() {
   const navigate = useNavigate();
   const [keyword, setKeyword] = useState("");
   const [suggestions, setSuggestions] = useState([]);
+  const [isWishlistEmpty, setIsWishlistEmpty] = useState(true);
 
   const searchSubmitHandler = (e) => {
     e.preventDefault();
@@ -76,6 +78,14 @@ function Header() {
     dispatch(logout());
     toast.success("Logout Successfully");
   }
+
+  useEffect(() => {
+    if (wishlist && wishlist.orderItems && wishlist.orderItems.length > 0) {
+      setIsWishlistEmpty(false);
+    } else {
+      setIsWishlistEmpty(true);
+    }
+  }, [wishlist]);
 
   return (
     <div className="header">
@@ -187,7 +197,12 @@ function Header() {
         {isAuthenticated && (
           <Link style={{ textDecoration: "none" }} to="/wishlist">
             <div className="header_optionCart header_wishlist">
-              <FavoriteIcon style={{ fontSize: "26px", color: "red" }} />
+              <FavoriteIcon
+                style={{
+                  fontSize: "26px",
+                  color: isWishlistEmpty ? "whitesmoke" : "red",
+                }}
+              />
             </div>
           </Link>
         )}
@@ -216,7 +231,12 @@ function Header() {
       {isAuthenticated && (
         <Link style={{ textDecoration: "none" }} to="/wishlist">
           <div className="header_optionCart header_wishlistMobile">
-            <FavoriteIcon style={{ fontSize: "26px", color: "red" }} />
+            <FavoriteIcon
+              style={{
+                fontSize: "26px",
+                color: isWishlistEmpty ? "whitesmoke" : "red",
+              }}
+            />
           </div>
         </Link>
       )}

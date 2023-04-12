@@ -97,7 +97,6 @@ const ProductDetails = () => {
       };
       console.log(option);
       dispatch(createwishlist(option));
-
       toast.success("Product added in wishlist");
     } else {
       toast.error("Login to add Product into Wishlist");
