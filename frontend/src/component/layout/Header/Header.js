@@ -19,13 +19,22 @@ function Header() {
   const navigate = useNavigate();
   const [keyword, setKeyword] = useState("");
   const [suggestions, setSuggestions] = useState([]);
-  const [recentSearches, setRecentSearches] = useState([]);
+  const [recentSearches, setRecentSearches] = useState(
+    JSON.parse(localStorage.getItem("recentSearches")) || []
+  );
   const [isWishlistEmpty, setIsWishlistEmpty] = useState(true);
-  const [isSearchInputFocused, setIsSearchInputFocused] = useState(false);
+  const [placeholderIndex, setPlaceholderIndex] = useState(0);
+  const placeholders = [
+    "Search for medicine",
+    "Search for Pain Balm",
+    "Search for Baby Soap",
+  ];
 
-
-  const addToRecentSearches = (keyword) => {
-    const updatedSearches = [keyword, ...recentSearches.slice(0, 4)];
+  const addToRecentSearches = (search) => {
+    const updatedSearches = [
+      search,
+      ...recentSearches.filter((s) => s !== search).slice(0, 4),
+    ];
     setRecentSearches(updatedSearches);
     localStorage.setItem("recentSearches", JSON.stringify(updatedSearches));
   };
@@ -58,25 +67,17 @@ function Header() {
   };
 
   const handleInputChange = (e) => {
-    setKeyword(e.target.value);
-    getSuggestions(e.target.value);
+    const value = e.target.value;
+    setKeyword(value);
+    getSuggestions(value);
   };
 
   const handleSuggestionClick = (suggestion) => {
-    setKeyword(suggestion.name);
-    setSuggestions([]);
-    navigate(`/products/${suggestion.name}`);
-    addToRecentSearches(suggestion.name); // add suggestion to recent searches
     setKeyword("");
+    setSuggestions([]);
+    addToRecentSearches(suggestion.name);
+    navigate(`/products/${suggestion.name}`);
   };
-
-  const [placeholderIndex, setPlaceholderIndex] = useState(0);
-
-  const placeholders = [
-    "Search for medicine",
-    "Search for Pain Balm",
-    "Search for Baby Soap",
-  ];
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -128,23 +129,20 @@ function Header() {
           placeholder={placeholders[placeholderIndex]}
           value={keyword}
           onChange={handleInputChange}
-          onFocus={() => setIsSearchInputFocused(true)}
-          onBlur={() => setIsSearchInputFocused(false)}
         />
         {recentSearches.length > 0 && (
           <div className="header__recentSearches">
             <p className="header__recentSearchesTitle">Recently Searched:</p>
             <ul className="header__recentSearchesList">
-              {recentSearches.map((search, index) => (
+              {recentSearches.map((search) => (
                 <li className="header__recentSearchesItem" key={search}>
                   {search}
                   <button
                     className="header__recentSearchesCloseBtn"
                     onClick={() => {
-                      const updatedSearches = [
-                        ...recentSearches.slice(0, index),
-                        ...recentSearches.slice(index + 1),
-                      ];
+                      const updatedSearches = recentSearches.filter(
+                        (s) => s !== search
+                      );
                       setRecentSearches(updatedSearches);
                       localStorage.setItem(
                         "recentSearches",

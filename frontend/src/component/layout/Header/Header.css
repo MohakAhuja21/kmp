@@ -227,55 +227,51 @@
 
 .header__recentSearches {
   position: absolute;
-  top: 50px; /* adjust this value to fit your layout */
+  top: 100%;
   left: 0;
+  z-index: 1;
   width: 100%;
   background-color: #fff;
-  border: 1px solid #ccc;
-  z-index: 1;
+  border-radius: 4px;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+  list-style: none;
+  padding: 0;
+  margin: 0;
 }
 
 .header__recentSearchesTitle {
+  font-size: 14px;
   font-weight: bold;
-  margin: 0 0 5px;
+  margin: 0;
   padding: 10px;
 }
 
 .header__recentSearchesList {
-  list-style: none;
-  margin: 0;
   padding: 0;
+  margin: 0;
 }
 
 .header__recentSearchesItem {
+  padding: 10px;
+  font-size: 14px;
+  color: #333;
+  cursor: pointer;
   display: flex;
-  justify-content: space-between;
   align-items: center;
-  padding: 5px 10px;
+}
+
+.header__recentSearchesItem:hover {
+  background-color: #f1f1f1;
 }
 
 .header__recentSearchesCloseBtn {
-  background-color: transparent;
   border: none;
-  cursor: pointer;
-  font-size: 20px;
-  line-height: 1;
-  margin-left: 10px;
-  padding: 0;
-}
-
-.header__recentSearchesCloseBtn:hover {
-  color: #f00;
-}
-
-.header__deleteSearchButton {
+  outline: none;
   background-color: transparent;
-  border: none;
-  font-size: 12px;
+  color: #333;
   cursor: pointer;
-  margin-left: 5px;
+  margin-left: auto;
 }
-
 
 /* mobile navbar */
 @media screen and (max-width:700px){
