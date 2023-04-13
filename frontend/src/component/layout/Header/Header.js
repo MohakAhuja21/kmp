@@ -19,12 +19,22 @@ function Header() {
   const navigate = useNavigate();
   const [keyword, setKeyword] = useState("");
   const [suggestions, setSuggestions] = useState([]);
+  const [recentSearches, setRecentSearches] = useState([]);
   const [isWishlistEmpty, setIsWishlistEmpty] = useState(true);
+  const [isSearchInputFocused, setIsSearchInputFocused] = useState(false);
+
+
+  const addToRecentSearches = (keyword) => {
+    const updatedSearches = [keyword, ...recentSearches.slice(0, 4)];
+    setRecentSearches(updatedSearches);
+    localStorage.setItem("recentSearches", JSON.stringify(updatedSearches));
+  };
 
   const searchSubmitHandler = (e) => {
     e.preventDefault();
     if (keyword.trim()) {
       navigate(`/products/${keyword}`);
+      addToRecentSearches(keyword);
     } else {
       navigate("/products");
     }
@@ -56,6 +66,7 @@ function Header() {
     setKeyword(suggestion.name);
     setSuggestions([]);
     navigate(`/products/${suggestion.name}`);
+    addToRecentSearches(suggestion.name); // add suggestion to recent searches
     setKeyword("");
   };
 
@@ -73,6 +84,11 @@ function Header() {
     }, 3000);
     return () => clearInterval(interval);
   }, [placeholderIndex, placeholders.length]);
+
+  useEffect(() => {
+    const searches = JSON.parse(localStorage.getItem("recentSearches")) || [];
+    setRecentSearches(searches);
+  }, []);
 
   function logoutUser() {
     dispatch(logout());
@@ -112,8 +128,37 @@ function Header() {
           placeholder={placeholders[placeholderIndex]}
           value={keyword}
           onChange={handleInputChange}
+          onFocus={() => setIsSearchInputFocused(true)}
+          onBlur={() => setIsSearchInputFocused(false)}
         />
-        {/* <SearchIcon className="header__searchIcon" /> */}
+        {recentSearches.length > 0 && (
+          <div className="header__recentSearches">
+            <p className="header__recentSearchesTitle">Recently Searched:</p>
+            <ul className="header__recentSearchesList">
+              {recentSearches.map((search, index) => (
+                <li className="header__recentSearchesItem" key={search}>
+                  {search}
+                  <button
+                    className="header__recentSearchesCloseBtn"
+                    onClick={() => {
+                      const updatedSearches = [
+                        ...recentSearches.slice(0, index),
+                        ...recentSearches.slice(index + 1),
+                      ];
+                      setRecentSearches(updatedSearches);
+                      localStorage.setItem(
+                        "recentSearches",
+                        JSON.stringify(updatedSearches)
+                      );
+                    }}
+                  >
+                    &times;
+                  </button>
+                </li>
+              ))}
+            </ul>
+          </div>
+        )}
         {suggestions.length > 0 && keyword.trim() !== "" && (
           <ul className="header__searchSuggestion">
             {suggestions.map((suggestion) => (
@@ -207,7 +252,6 @@ function Header() {
           </Link>
         )}
       </div>
-
       {/* // mobile navbar */}
       <div
         className={`nav-toggle ${isOpen && "open"}`}
@@ -215,7 +259,6 @@ function Header() {
       >
         <div className="bar"></div>
       </div>
-
       <Link style={{ textDecoration: "none" }} to="/cart">
         <div className="header_optionCartMobile">
           <ShoppingBasketRoundedIcon style={{ fontSize: "28px" }} />
