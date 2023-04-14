@@ -171,8 +171,8 @@ function Header() {
             </p>
             <ul className="header__recentSearchesList">
               {recentSearches.map((search) => (
-                <li className="header__recentSearchesItem" key={search}>
-                  {search}
+                <li className="header__recentSearchesItem" key={search.timestamp}>
+                   {search.search}
                 </li>
               ))}
             </ul>
