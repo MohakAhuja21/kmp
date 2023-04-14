@@ -130,7 +130,7 @@ function Header() {
           value={keyword}
           onChange={handleInputChange}
         />
-        {recentSearches.length > 0 && (
+        {(keyword !== '' && recentSearches.length > 0) && (
           <div className="header__recentSearches">
             <p className="header__recentSearchesTitle">Recently Searched:</p>
             <ul className="header__recentSearchesList">
