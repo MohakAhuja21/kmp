@@ -244,6 +244,8 @@
   font-weight: bold;
   margin: 0;
   padding: 10px;
+  font-style: italic;
+  color: rgb(183, 183, 183);
 }
 
 .header__recentSearchesList {
@@ -252,8 +254,8 @@
 }
 
 .header__recentSearchesItem {
-  padding: 10px;
-  font-size: 14px;
+  padding: 7px;
+  font-size: 13px;
   color: #333;
   cursor: pointer;
   display: flex;

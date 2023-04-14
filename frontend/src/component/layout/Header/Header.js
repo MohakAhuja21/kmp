@@ -30,14 +30,32 @@ function Header() {
     "Search for Baby Soap",
   ];
 
+  const inputRef = useRef(null);
+  const [focused, setFocused] = useState(false);
+
+  const handleFocus = () => {
+    setFocused(true);
+  };
+
+  const handleBlur = () => {
+    setFocused(false);
+  };
+
   const addToRecentSearches = (search) => {
+    const now = new Date().getTime();
     const updatedSearches = [
-      search,
-      ...recentSearches.filter((s) => s !== search).slice(0, 4),
+      {
+        search,
+        timestamp: now,
+      },
+      ...recentSearches
+        .filter((s) => now - s.timestamp < 24 * 60 * 60 * 1000)
+        .slice(0, 4),
     ];
     setRecentSearches(updatedSearches);
     localStorage.setItem("recentSearches", JSON.stringify(updatedSearches));
   };
+  
 
   const searchSubmitHandler = (e) => {
     e.preventDefault();
@@ -129,35 +147,11 @@ function Header() {
           placeholder={placeholders[placeholderIndex]}
           value={keyword}
           onChange={handleInputChange}
+          onFocus={handleFocus}
+          onBlur={handleBlur}
+          ref={inputRef}
         />
-        {(keyword !== '' && recentSearches.length > 0) && (
-          <div className="header__recentSearches">
-            <p className="header__recentSearchesTitle">Recently Searched:</p>
-            <ul className="header__recentSearchesList">
-              {recentSearches.map((search) => (
-                <li className="header__recentSearchesItem" key={search}>
-                  {search}
-                  <button
-                    className="header__recentSearchesCloseBtn"
-                    onClick={() => {
-                      const updatedSearches = recentSearches.filter(
-                        (s) => s !== search
-                      );
-                      setRecentSearches(updatedSearches);
-                      localStorage.setItem(
-                        "recentSearches",
-                        JSON.stringify(updatedSearches)
-                      );
-                    }}
-                  >
-                    &times;
-                  </button>
-                </li>
-              ))}
-            </ul>
-          </div>
-        )}
-        {suggestions.length > 0 && keyword.trim() !== "" && (
+        {keyword.trim() !== "" && suggestions.length > 0 && (
           <ul className="header__searchSuggestion">
             {suggestions.map((suggestion) => (
               <li
@@ -169,6 +163,20 @@ function Header() {
               </li>
             ))}
           </ul>
+        )}
+        {focused && recentSearches.length > 0 && keyword.trim() === "" && (
+          <div className="header__recentSearches">
+            <p className="header__recentSearchesTitle">
+              Recent Searches
+            </p>
+            <ul className="header__recentSearchesList">
+              {recentSearches.map((search) => (
+                <li className="header__recentSearchesItem" key={search}>
+                  {search}
+                </li>
+              ))}
+            </ul>
+          </div>
         )}
       </form>
 
