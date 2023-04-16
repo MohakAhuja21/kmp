@@ -98,7 +98,7 @@ const Cart = () => {
                         style={{ display: "flex", justifyContent: "flex-end" }}
                         className="cartSubtotal__login"
                       >
-                        <LockIcon style={{color:"#051b4cee"}} />
+                        <LockIcon style={{ color: "#051b4cee" }} />
                       </div>
                     )}
                   </p>
@@ -110,9 +110,12 @@ const Cart = () => {
               <div className="cartGrossTotalBox">
                 <p>Gross Total</p>
                 {isAuthenticated ? (
-                  <p>{`₹${cartItems
-                    .reduce((acc, item) => acc + item.quantity * item.price, 0)
-                    .toFixed(2)}`}</p>
+                  <p>{`₹${Math.round(
+                    cartItems.reduce(
+                      (acc, item) => acc + item.quantity * item.price,
+                      0
+                    )
+                  ).toFixed(0)}`}</p>
                 ) : (
                   <div>
                     <LockIcon
@@ -126,6 +129,7 @@ const Cart = () => {
                 <button onClick={checkOutHandler}>Order Now</button>
               </div>
             </div>
+
             <div className="offer-section">
               <div className="offer-header" onClick={toggleSection}>
                 <h3>Offers</h3>

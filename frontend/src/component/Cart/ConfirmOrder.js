@@ -123,7 +123,7 @@ const ConfirmOrder = () => {
             </div>
           </div>
           <div className="confirmCartItems">
-            <Typography>Your Cart Items</Typography>
+            <Typography style={{fontWeight: 'bold'}}>Your Cart Items</Typography>
             <div className="confirmCartItemsContainer">
               {cartItems &&
                 cartItems.map((item) => (
