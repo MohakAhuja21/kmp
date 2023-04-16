@@ -268,8 +268,8 @@
 
 @media screen and (max-width: 600px) {
   .confirmOrderPage {
-    grid-template-columns: 1fr;
-    height: unset;
+    display: block;
+    height: auto;
   }
   .confirmCartItemsContainerDiv span {
     display: contents;

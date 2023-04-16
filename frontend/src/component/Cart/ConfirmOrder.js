@@ -44,14 +44,16 @@ const ConfirmOrder = () => {
       toast.error("Invalid coupon code");
     } else if (coupon.expiry && coupon.expiry < new Date()) {
       toast.error("This coupon has expired");
-    }
-    else if (coupon.usageLimit && coupon.usageLimit <= coupon.usageCount) {
+    } else if (coupon.usageLimit && coupon.usageLimit <= coupon.usageCount) {
       toast.error("This coupon has exceeded its usage limit");
-    }
-    else if (coupon.minimumOrderAmount && subtotal < coupon.minimumOrderAmount) {
-      toast.error(`This coupon requires a minimum order amount of ${coupon.minimumOrderAmount}`);
-    }
-    else {
+    } else if (
+      coupon.minimumOrderAmount &&
+      subtotal < coupon.minimumOrderAmount
+    ) {
+      toast.error(
+        `This coupon requires a minimum order amount of ${coupon.minimumOrderAmount}`
+      );
+    } else {
       setDiscount(coupon.discount);
       setAppliedCoupon(coupon);
       toast.success("Coupon applied successfully");
@@ -62,14 +64,16 @@ const ConfirmOrder = () => {
     }
   };
 
-  const subtotal = cartItems.reduce(
-    (acc, item) => acc + item.quantity * item.price,
-    0
-  );
-  
+  const subtotal = cartItems
+    .reduce((acc, item) => acc + item.quantity * item.price, 0)
+    .toFixed(2);
+
   const shippingCharges = subtotal < 100 ? 5 : 0;
-  
-  const totalPrice = subtotal + shippingCharges - (appliedCoupon ? (discount / 100) * subtotal : 0);  
+
+  const totalPrice =
+    subtotal +
+    shippingCharges -
+    (appliedCoupon ? (discount / 100) * subtotal : 0);
 
   const address = `${shippingInfo.address}, ${shippingInfo.city}, ${shippingInfo.state}, ${shippingInfo.pincode}, ${shippingInfo.country}`;
 
@@ -88,7 +92,7 @@ const ConfirmOrder = () => {
 
   const toggleSection = () => {
     setIsOpen(!isOpen);
-  }
+  };
 
   const couponName = "health"; // specify the coupon name here
 
@@ -123,7 +127,9 @@ const ConfirmOrder = () => {
             </div>
           </div>
           <div className="confirmCartItems">
-            <Typography style={{fontWeight: 'bold'}}>Your Cart Items</Typography>
+            <Typography style={{ fontWeight: "bold" }}>
+              Your Cart Items
+            </Typography>
             <div className="confirmCartItemsContainer">
               {cartItems &&
                 cartItems.map((item) => (
@@ -133,8 +139,8 @@ const ConfirmOrder = () => {
                       {item.name}
                     </Link>{" "}
                     <span>
-                      {item.quantity} X ₹{item.price} ={" "}
-                      <b>₹{item.price * item.quantity}</b>
+                      {item.quantity} X ₹{item.price.toFixed(2)} ={" "}
+                      <b>₹{(item.price * item.quantity).toFixed(2)}</b>
                     </span>
                   </div>
                 ))}
@@ -144,7 +150,7 @@ const ConfirmOrder = () => {
         {/*  */}
         <div>
           <div className="orderSummary">
-            <h1>Order Summary</h1>
+            <h1 style={{ fontWeight: "bold" }}>Order Summary</h1>
             <div className="orderSummaryNext">
               <div>
                 <p>Subtotal:</p>
@@ -173,7 +179,9 @@ const ConfirmOrder = () => {
                   type="text"
                   placeholder="Enter Coupon Code"
                   value={couponCode}
-                  onChange={(event) => setCouponCode(event.target.value.toLowerCase())}
+                  onChange={(event) =>
+                    setCouponCode(event.target.value.toLowerCase())
+                  }
                 />
                 <button type="submit">Apply</button>
                 {appliedCoupon && discount && (
@@ -188,34 +196,35 @@ const ConfirmOrder = () => {
               <p>
                 <b>Total:</b>
               </p>
-              <span>₹{totalPrice}</span>
+              <span>₹{totalPrice.toFixed(0)}</span>
             </div>
 
             <button onClick={proceedToPayment}>Proceed To Payment</button>
           </div>
         </div>
         <div className="offer-section">
-                <div className="offer-header" onClick={toggleSection}>
-                  <h3>Offers</h3>
-                  {isOpen ? (
-                    <span className="close-icon">-</span>
-                  ) : (
-                    <span className="open-icon">+</span>
-                  )}
-                </div>
-                {isOpen && (
-  <div className="offer-content" style={{ display: "flex", alignItems: "center" }}>
-    <div className="offer-text" style={{ flex: 1 }}>
-      <p style={{ margin: 0 }}>Apply coupon code: {couponName}</p>
-    </div>
-    <button onClick={handleCopyClick}>
-      {copied ? "Code copied!" : "Copy code"}
-    </button>
-  </div>
-)}
-
-
+          <div className="offer-header" onClick={toggleSection}>
+            <h3>Offers</h3>
+            {isOpen ? (
+              <span className="close-icon">-</span>
+            ) : (
+              <span className="open-icon">+</span>
+            )}
+          </div>
+          {isOpen && (
+            <div
+              className="offer-content"
+              style={{ display: "flex", alignItems: "center" }}
+            >
+              <div className="offer-text" style={{ flex: 1 }}>
+                <p style={{ margin: 0 }}>Apply coupon code: {couponName}</p>
               </div>
+              <button onClick={handleCopyClick}>
+                {copied ? "Code copied!" : "Copy code"}
+              </button>
+            </div>
+          )}
+        </div>
       </div>
     </Fragment>
   );
