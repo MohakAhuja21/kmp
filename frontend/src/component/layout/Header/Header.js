@@ -25,9 +25,13 @@ function Header() {
   const [isWishlistEmpty, setIsWishlistEmpty] = useState(true);
   const [placeholderIndex, setPlaceholderIndex] = useState(0);
   const placeholders = [
-    "Search for medicine",
-    "Search for Pain Balm",
-    "Search for Baby Soap",
+    "Search for AmoxyClav",
+    "Search for Omnigel",
+    "Search for Spasmonil",
+    "Search for Pregabel",
+    "Search for Torex",
+    "Search for Cream",
+    "Search for Spray",
   ];
 
   const inputRef = useRef(null);

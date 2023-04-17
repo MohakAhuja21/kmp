@@ -192,8 +192,10 @@
 
 
 @media screen and (max-width: 600px) {
+  .loginSignUp{
+    height: 118vh;
+  }
   .LoginSignUpBox {
-    height: 65vh;
     width: 100%;
   }
   .loginSignToggle {

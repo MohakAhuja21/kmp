@@ -279,7 +279,7 @@
 @media screen and (max-width:700px){
   .header{
     grid-template-columns: auto;
-    height: 126px;
+    height: auto;
   }
   .header__logo{
     margin-top: 3px;

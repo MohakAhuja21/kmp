@@ -31,7 +31,7 @@ const Home = () => {
             <div className="carousel">
               <div className="slider">
                 <div className="slide-content">
-                  <h1 className="movie-title">Medical<br></br> Distributor</h1>
+                  <h1 className="movie-title">Pharmaceutical<br></br> Distributor</h1>
                   <ul className="movie-des">
                     <li>Trusted Partner for Wholesale Medicine Supply</li>
                     <li>
