@@ -293,7 +293,9 @@ const ProductDetails = () => {
                             />
                             <div className="shop__des_reco">
                               <h5>{similarProduct.name}</h5>
-                              <p>₹{similarProduct.price}</p>
+                              {isAuthenticated ? (
+                                <p>₹{similarProduct.price}</p>
+                              ) : null}
                             </div>
                           </Link>
                         </div>
