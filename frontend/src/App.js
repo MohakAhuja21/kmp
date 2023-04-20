@@ -28,6 +28,7 @@ import { Toaster } from "react-hot-toast";
 import Loader from "./component/layout/Loader/Loader";
 import PrescriptionManagement from "./component/Home/Prescription";
 import Contact from "./component/Home/Contact";
+import ReactGA from "react-ga";
 
 const Products = React.lazy(() => import("./component/Product/Products"));
 const ProductDetails = React.lazy(() =>
@@ -45,6 +46,12 @@ function App() {
 
   React.useEffect(() => {
     store.dispatch(loadUser());
+
+    // Initialize Google Analytics with your tracking ID
+    ReactGA.initialize("G-BFE61P3F87");
+
+    // Track the page view
+    ReactGA.pageview(window.location.pathname + window.location.search);
   }, []);
 
   return (
