@@ -1,5 +1,6 @@
 import React from "react";
 import "./Footer.css";
+import { Link } from "react-router-dom";
 
 const Footer = () => {
   return (
@@ -10,7 +11,7 @@ const Footer = () => {
         {/* change a to link *imp */}
         <ul>
           <li>
-            <a href="#" target={'blank'}>Contact us</a>
+            <Link to="/contact">Contact Us</Link>
           </li>
           <li>
             <a href="#" target={'blank'}>Privacy Policy</a>

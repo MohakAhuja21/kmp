@@ -1,0 +1,87 @@
+/* CONTACT FORM */
+.label-text{
+  /* color: #333; */
+  font-size: 20px;
+}
+.contact-section{
+  margin-top: 4vh;
+}
+.contact-section h1{
+  color: rgba(0, 0, 0, 0.7);
+  text-align: center;
+  font-size: 5vh;
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+.contact-form{
+  margin: auto;
+  max-width: 600px;
+  overflow: hidden;
+  padding: 17px;
+}
+.label-text input[type="text"],
+.label-text input[type="email"],
+.label-text input[type="tel"]{
+  border: 2px solid #0156b3;
+  border-radius: 5px;
+  font-size: 16px;
+}
+.contact-form-text{
+  width: 100%;
+  box-sizing: border-box;
+  padding: 10px;
+  border: 0;
+  outline: none;
+  border: 2px solid #0156b3;
+}
+.contact-form-text:focus{
+  box-shadow: 0 2px 4px 1px #34495ec9;
+}
+.contact-form .btn:active{
+  transform: scale(0.98);
+}
+.contact-form .btn{
+  border: none;
+  background-color: #051b4c;
+  color: white;
+  font-size: large;
+  width: 100%;
+  padding: 0.8vmax;
+  cursor: pointer;
+  border-radius: 4px;
+  outline: none;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.219);
+}
+textarea{
+  border-radius: 5px;
+  resize: none;
+}
+/* form validation id */
+#message{
+  font-size: small;
+  letter-spacing: 1px;
+}
+#phone-error{
+  font-size: small;
+  color: red;
+  letter-spacing: 1px;
+}
+#email-error{
+  color:red;
+  font-size: small;
+  letter-spacing: 1px;
+}
+
+.label-text,.label-text>input{
+  display: block;
+}
+.label-text{
+  margin-bottom:24px;
+}
+
+@media screen and (max-width: 600px){
+ .contact-form .btn{
+    padding: 1.8vmax;
+    float: right;
+    width: auto;
+}
+}
