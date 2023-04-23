@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useForm } from "@formspree/react";
 import "./Contact.css";
 
@@ -83,6 +83,10 @@ function ContactForm() {
     }
   }
 
+  useEffect(()=>{
+    window.scrollTo(0, 0);
+  })
+
   return (
     <div className="contact-section">
        {/* If the form is submitted successfully, show a success message */}
@@ -157,7 +161,8 @@ function ContactForm() {
             cols="30"
             rows="3"
             className="contact-form-text"
-            value={message}
+            defaultValue={message}
+            onChange={(e) => setMessage(e.target.value)}
             required
           ></textarea>
           <span id="message"></span>
@@ -168,7 +173,8 @@ function ContactForm() {
         </button>
         {isFormSubmitted && (
         <p style={{ color: "green", textAlign:"left" }}>
-          Thanks for contacting us! We'll get back to you soon.
+          Thanks for contacting us!<br></br>
+          We'll get back to you soon.
         </p>
       )}
       </form>
