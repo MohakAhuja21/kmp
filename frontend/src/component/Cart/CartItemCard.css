@@ -37,6 +37,28 @@
   cursor: pointer;
 }
 
+.cart-item-card-enter {
+  opacity: 0;
+  transform: translateX(-100%);
+}
+
+.cart-item-card-enter-active {
+  opacity: 1;
+  transform: translateX(0%);
+  transition: all 300ms ease-out;
+}
+
+.cart-item-card-exit {
+  opacity: 1;
+  transform: translateX(0%);
+}
+
+.cart-item-card-exit-active {
+  opacity: 0;
+  transform: translateX(100%);
+  transition: all 300ms ease-out;
+}
+
 @media screen and (max-width: 600px) {
   .CartItemCard {
     padding: 8px;
