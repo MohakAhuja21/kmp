@@ -42,7 +42,7 @@ const ForgotPassword = () => {
           <div className="forgotPasswordContainer">
             <div className="forgotPasswordBox">
               <h2 className="forgotPasswordHeading">
-                Enter Your Email, we will send a reset password link
+                Enter Your Email<br></br> we will send a reset password link
               </h2>
 
               <form

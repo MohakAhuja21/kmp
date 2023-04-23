@@ -8,6 +8,7 @@ import { useNavigate } from "react-router-dom";
 import LockOpenIcon from "@material-ui/icons/LockOpen";
 import LockIcon from "@material-ui/icons/Lock";
 import { toast } from "react-hot-toast";
+import { TextField } from "@mui/material";
 
 const ResetPassword = () => {
   const { token } = useParams();
@@ -47,41 +48,41 @@ const ResetPassword = () => {
       ) : (
         <Fragment>
           <div className="resetPasswordContainer">
-            <div className="resetPasswordBox">
-              <h2 className="resetPasswordHeading">Reset Password</h2>
-
-              <form
-                className="resetPasswordForm"
-                onSubmit={resetPasswordSubmit}
-              >
-                <div>
-                  <LockOpenIcon />
-                  <input
-                    type="password"
-                    placeholder="New Password"
-                    required
-                    value={password}
-                    onChange={(e) => setPassword(e.target.value)}
-                  />
-                </div>
-                <div className="loginPassword">
-                  <LockIcon />
-                  <input
-                    type="password"
-                    placeholder="Confirm Password"
-                    required
-                    value={confirmPassword}
-                    onChange={(e) => setConfirmPassword(e.target.value)}
-                  />
-                </div>
-                <input
-                  type="submit"
-                  value="Update"
-                  className="resetPasswordBtn"
-                />
-              </form>
-            </div>
-          </div>
+  <div className="resetPasswordBox">
+    <h2 className="resetPasswordHeading">Reset Password</h2>
+    <form className="resetPasswordForm" onSubmit={resetPasswordSubmit}>
+      <div className="loginPassword">
+        <LockOpenIcon />
+        <TextField
+          style={{ marginLeft: "10px" }}
+          fullWidth
+          type="password"
+          placeholder="New Password"
+          required
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
+        />
+      </div>
+      <div className="loginPassword">
+        <LockIcon />
+        <TextField
+          style={{ marginLeft: "10px" }}
+          fullWidth
+          type="password"
+          placeholder="Confirm Password"
+          required
+          value={confirmPassword}
+          onChange={(e) => setConfirmPassword(e.target.value)}
+        />
+      </div>
+      <input
+        type="submit"
+        value="Update"
+        className="resetPasswordBtn"
+      />
+    </form>
+  </div>
+</div> 
         </Fragment>
       )}
     </Fragment>
