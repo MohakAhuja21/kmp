@@ -63,6 +63,14 @@
     color: red;
   }
 
+  .productCard__quantityButton{
+    background-color: whitesmoke;
+    color: #333;
+    border: 1px solid lightgray;
+    padding: 5px;
+    margin-left: 5px;
+  }
+
   @media screen and (max-width: 800px) {
     .productCard {
       display: grid;

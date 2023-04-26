@@ -51,7 +51,7 @@ const ProductDetails = () => {
     }
   }, [dispatch, id, error]);
 
-  const [quantity, setQuantity] = useState(4);
+  const [quantity, setQuantity] = useState(2);
 
   const increaseQuantity = () => {
     if (product.stock <= quantity + 1) {
@@ -65,8 +65,8 @@ const ProductDetails = () => {
   };
 
   const decreaseQuantity = () => {
-    if (quantity <= 4) {
-      toast.error("Quantity cannot be less than 4.");
+    if (quantity <= 2) {
+      toast.error("Quantity cannot be less than 2.");
       return;
     }
     const qty = quantity - 1;

@@ -143,9 +143,9 @@
 }
 
 .shop__pro_recom img {
-  width: 100%;
-  height: 250px;
-  object-fit: cover;
+  /* width: 110%; */
+  height: 12vh;
+  object-fit: contain;
 }
 
 .shop__des_reco {
