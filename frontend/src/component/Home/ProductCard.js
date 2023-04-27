@@ -5,7 +5,7 @@ import { useDispatch, useSelector } from "react-redux";
 import LockIcon from "@material-ui/icons/Lock";
 import { addItemsToCart } from "../../actions/cartAction";
 import { toast } from "react-hot-toast";
-import ShoppingBasketIcon from '@mui/icons-material/ShoppingBasket';
+import Button from "@mui/material/Button";
 
 const ProductCard = ({ product }) => {
   const { isAuthenticated } = useSelector((state) => state.user);
@@ -16,7 +16,7 @@ const ProductCard = ({ product }) => {
       toast.error("This Item is currently out of stock.");
       return;
     }
-    dispatch(addItemsToCart(product._id, 1)); // Always add 1 item to the cart when "Add to Cart" button is clicked
+    dispatch(addItemsToCart(product._id, 2)); // Always add 2 item to the cart when "Add to Cart" button is clicked
     toast.success("Item added to cart"); // Display success message when product is added to the cart
   };
 
@@ -32,16 +32,17 @@ const ProductCard = ({ product }) => {
             <LockIcon />
           </div>
         )}
-        <button
+      </div>
+      <Button
+          variant="outlined"
           className="productCard__quantityButton"
           onClick={(e) => {
             e.preventDefault();
             addToCartHandler();
           }}
         >
-          <ShoppingBasketIcon/>
-        </button>
-      </div>
+          Add Item to Cart
+        </Button>
     </Link>
   );
 };

@@ -63,20 +63,11 @@
     color: red;
   }
 
-  .productCard__quantityButton{
-    background: transparent;
-    color: #0c2967;
-    border: none;
-    display: flex;
-    margin-left: 5px;
-    padding-left: 5px;
-  }
-
   @media screen and (max-width: 800px) {
     .productCard {
       display: grid;
       grid-template-columns: 1fr 2fr 1fr;
-      grid-gap: 10px;
+      grid-gap: 8px;
       align-items: center;
       text-align: center;
       border-radius: 8px;
@@ -116,5 +107,11 @@
     }
     .productCard__price{
       margin-top: 20px !important;
+    }
+    .productCard__quantityButton{
+      width: max-content;
+    }
+    .productCard > .productCard__price{
+      margin-bottom: inherit;
     }
   }
