@@ -64,11 +64,12 @@
   }
 
   .productCard__quantityButton{
-    background-color: whitesmoke;
-    color: #333;
-    border: 1px solid lightgray;
-    padding: 5px;
+    background: transparent;
+    color: #0c2967;
+    border: none;
+    display: flex;
     margin-left: 5px;
+    padding-left: 5px;
   }
 
   @media screen and (max-width: 800px) {
