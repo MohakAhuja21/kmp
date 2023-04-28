@@ -8,6 +8,7 @@ import MetaData from "../layout/Metadata";
 import Slider from "./SliderHome";
 import Footer from "../layout/Footer/Footer";
 import { toast } from "react-hot-toast";
+import { Link } from "react-router-dom";
 
 const Home = () => {
   const dispatch = useDispatch();
@@ -31,7 +32,9 @@ const Home = () => {
             <div className="carousel">
               <div className="slider">
                 <div className="slide-content">
-                  <h1 className="movie-title">Pharmaceutical<br></br> Distributor</h1>
+                  <h1 className="movie-title">
+                    Pharmaceutical<br></br> Distributor
+                  </h1>
                   <ul className="movie-des">
                     <li>Trusted Partner for Wholesale Medicine Supply</li>
                     <li>
@@ -55,6 +58,12 @@ const Home = () => {
             {products &&
               products.map((product) => <Product product={product} />)}
           </div>
+          <div className="card__products">
+            <Link style={{ textDecoration: "none" }} to="/products">
+              Shop all Products
+            </Link>
+          </div>
+
           {/* <div className="home__intro">
         Search for :
         <ReactRotatingText

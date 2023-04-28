@@ -15,8 +15,9 @@
   
   .productCard > img {
     width: 15vmax;
-    height: 14vmax;
+    height: 11vmax;
     object-fit: contain;
+    pointer-events: none;
   }
   
   .productCard > div {
@@ -102,8 +103,10 @@
       font-size: 12px;
     }
     .productCard__price >span{
-      margin-left: 2px;
-      font-size: 23px;
+      margin-inline: 2px;
+      font-size: 22px;
+      color: #332;
+      font-weight: 400;
     }
     .productCard__price{
       margin-top: 20px !important;

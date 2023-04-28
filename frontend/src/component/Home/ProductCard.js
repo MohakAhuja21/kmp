@@ -23,7 +23,7 @@ const ProductCard = ({ product }) => {
   return (
     <Link className="productCard" to={`/product/${product._id}`}>
       <img src={product.images[0].url} alt={product.name} />
-      <p>{product.name}</p>
+      <p>{product.name}&nbsp;<sup style={{fontSize:"small", color:"gray"}}>({product.packaging})</sup></p>
       <div className="productCard__price">
         {isAuthenticated ? (
           <span>{`\u20B9${product.price}`}</span>
