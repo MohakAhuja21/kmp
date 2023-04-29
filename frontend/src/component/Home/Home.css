@@ -95,6 +95,32 @@
   max-width: 100%;
 }
 
+.card__products {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 80px;
+  margin-top: 10px;
+  /* border: 1px solid red; */
+}
+
+.card__products a {
+  background-color: #3a3a3af0;
+  color: whitesmoke;
+  padding: 12px 20px;
+  border-radius: 20px;
+  text-decoration: none;
+  font-size: 18px;
+  font-weight: bold;
+  text-transform: uppercase;
+  transition: background-color 0.3s ease;
+}
+
+.card__products a:active {
+  background-color: #0056b3;
+  transform: scale(0.98);
+}
+
 @media screen and (max-width: 800px) {
   .container{
     width: 100vw;
