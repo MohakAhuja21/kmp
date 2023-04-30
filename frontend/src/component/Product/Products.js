@@ -51,7 +51,7 @@ const Products = () => {
         "https://hips.hearstapps.com/hmg-prod/images/cough-syrup-1588614852.png",
     },
     {
-      name: "Ors",
+      name: "OralRehydrationSalt",
       image:
         "https://rukminim1.flixcart.com/image/850/850/kpinwy80/energy-sport-drink-mix/d/v/4/ors-ready-to-drink-oral-rehydration-contains-vital-electrolytes-original-imag3qzbf4x3hvgj.jpeg?q=20",
     },

@@ -283,6 +283,8 @@
   }
   .header__logo{
     margin-top: 3px;
+    position: relative;
+    top: 3px;
   }
   
   .header__searchInput{

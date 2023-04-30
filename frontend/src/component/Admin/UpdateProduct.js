@@ -43,7 +43,7 @@ const UpdateProduct = () => {
 
   const [unit, setUnit] = useState("");
 
-  const categories = ["PainReliefGel", "Syrup"];
+  const categories = ["PainReliefGel", "Syrup", "OralRehydrationSalt"];
 
   const { id } = useParams();
 
