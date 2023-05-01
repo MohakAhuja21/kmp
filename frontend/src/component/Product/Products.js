@@ -61,6 +61,11 @@ const Products = () => {
         "https://www.warbyparker.com/learn/wp-content/uploads/2022/10/eye-drops-for-dry-eyes-hero.jpg",
     },
     {
+      name: "Injection",
+      image:
+        "https://handsots.com/wp-content/uploads/2022/08/Why-Didnt-My-Cortisone-Injection-Work-for-My-Pain_-png-1024x724.png",
+    },
+    {
       name: "Ointment",
       image:
         "https://hips.hearstapps.com/netdoctor.cdnds.net/15/51/1450185971-g-corticosteroid-478186895.jpg",

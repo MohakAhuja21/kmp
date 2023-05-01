@@ -33,7 +33,7 @@ const NewProduct = () => {
 
   const [unit, setUnit] = useState("");
 
-  const categories = ["Ointment", "Syrup","EyeDrops","OralRehydrationSalt"];
+  const categories = ["Ointment", "Syrup","EyeDrops","OralRehydrationSalt","Injection"];
 
   useEffect(() => {
     if (error) {
