@@ -9,7 +9,6 @@ import Slider from "./SliderHome";
 import Footer from "../layout/Footer/Footer";
 import { toast } from "react-hot-toast";
 import { Link } from "react-router-dom";
-import banner from "../../images/banner.jpg";
 
 const Home = () => {
   const dispatch = useDispatch();
@@ -49,7 +48,7 @@ const Home = () => {
                 </div>
                 <img
                   className="home__img"
-                  src={banner}
+                  src="https://res.cloudinary.com/db4oba9mb/image/upload/v1683206984/banner_gji4n2.jpg"
                 />
               </div>
             </div>
