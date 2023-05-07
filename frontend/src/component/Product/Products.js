@@ -81,6 +81,18 @@ const Products = () => {
       image: "https://theobservatory.in/wp-content/uploads/2019/05/3-25.png",
     },
     {
+      name: "Leeford",
+      image: "https://scontent.fdel27-4.fna.fbcdn.net/v/t39.30808-6/272283216_489479505865760_7753547163186870560_n.jpg?_nc_cat=1&ccb=1-7&_nc_sid=09cbfe&_nc_ohc=_VyJxvpoWocAX_-Btz2&_nc_ht=scontent.fdel27-4.fna&oh=00_AfAmdlvUt5POV03kHx4QJZsSrgbbSYxZSYF7NkPxgjCI2w&oe=645D2691",
+    },
+    {
+      name: "CADILA PHARMACEUTICALS LTD",
+      image: "https://scontent.fdel27-5.fna.fbcdn.net/v/t1.6435-9/49296051_582202098920282_6533187247729016832_n.jpg?_nc_cat=103&ccb=1-7&_nc_sid=09cbfe&_nc_ohc=wD59-xhNDbAAX9d5J2d&_nc_ht=scontent.fdel27-5.fna&oh=00_AfAaKrA0u6m4VojHd3dDx_94S8c3gi8R7RwIRdVkhq2cYQ&oe=647F197E",
+    },
+    {
+      name: "Intas",
+      image: "https://scontent.fdel27-5.fna.fbcdn.net/v/t39.30808-6/307202510_212955981061827_794165621425815895_n.jpg?_nc_cat=107&ccb=1-7&_nc_sid=09cbfe&_nc_ohc=_fTCRcPqZ6MAX83PUj5&_nc_ht=scontent.fdel27-5.fna&oh=00_AfBPwEbRrW7QUujpmAcvfQGeWvnLkZw574qD94J8GwTgZg&oe=645BD0FB",
+    },
+    {
       name: "Agrawal Drugs PVt. Ltd",
       image:
         "https://cdn.shopify.com/s/files/1/0508/5210/2328/files/ADPL_300x300.png?v=1662967587",
@@ -115,7 +127,6 @@ const Products = () => {
                 onClick={() => setManufacturer(manufacturer.name)}
               >
                 <img src={manufacturer.image} alt={manufacturer.name} />
-                <span>{manufacturer.name}</span>
               </li>
             ))}
           </div>

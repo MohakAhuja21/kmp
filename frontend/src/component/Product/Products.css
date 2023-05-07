@@ -62,6 +62,33 @@
   margin-bottom: 15px;
   -webkit-overflow-scrolling: touch; /* for smoother scrolling on iOS */
 }
+.categoryBox::-webkit-scrollbar {
+  width: 1px; /* set the width of the scrollbar */
+}
+
+.categoryBox::-webkit-scrollbar-track {
+  background-color: transparent; /* set the background color of the scrollbar track */
+}
+
+.categoryBox::-webkit-scrollbar-thumb {
+  background-color: whitesmoke; /* set the color of the scrollbar thumb */
+  border-radius: 8px; /* round the corners of the scrollbar thumb */
+}
+
+.manufacturerBox::-webkit-scrollbar {
+  width: 1px; /* set the width of the scrollbar */
+}
+
+.manufacturerBox::-webkit-scrollbar-track {
+  background-color: transparent; /* set the background color of the scrollbar track */
+}
+
+.manufacturerBox::-webkit-scrollbar-thumb {
+  background-color: whitesmoke; /* set the color of the scrollbar thumb */
+  border-radius: 8px; /* round the corners of the scrollbar thumb */
+}
+
+
 .manufacturerBox {
   display: flex;
   flex-wrap: nowrap;
@@ -111,14 +138,16 @@
 }
 .manufacturer-link img {
   border-radius: 15px;
-  width: 80px;
+  width: fit-content;
   height: 80px;
-  object-fit: cover;
+  object-fit: contain;
+  border: 1px solid lightgrey;
   pointer-events: none;
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
+  margin-bottom: 10px;
 }
 
 .category-link span {
@@ -127,19 +156,11 @@
   font-weight: 450;
   font-style: italic;
   text-align: center;
-  border-bottom: 1px #FFBF00 solid;
+  border-bottom: 1px lightgray solid;
   width: fit-content;
   margin-top: 10px;
+  margin-bottom: 10px;
   filter: unset;
-}
-.manufacturer-link span {
-  white-space: nowrap;
-  font-size: 13px;
-  font-weight: 450;
-  font-style: italic;
-  text-align: center;
-  border-bottom: 1px #FFBF00 solid;
-  width: fit-content;
 }
 
 .box__title{
@@ -147,32 +168,9 @@
   align-items: center;
   font-size: 17px;
   margin-inline: 6px;
-  filter: blur(0.5px);
+  filter: blur(0.3px);
   color: #333333ec;
 }
-
-@media screen and (min-width: 768px) {
-  .categoryBox {
-    overflow-x: hidden;
-  }
-  .manufacturerBox {
-    overflow-x: hidden;
-  }
-
-  .category-link {
-    width: calc(33.33% - 16px);
-    max-width: none;
-    margin-right: 16px;
-    margin-bottom: 0;
-  }
-  .manufacturer-link {
-    width: calc(33.33% - 16px);
-    max-width: none;
-    margin-right: 16px;
-    margin-bottom: 0;
-  }
-}
-
 
 @media screen and (max-width: 850px) {
   .paginationBox{
@@ -181,7 +179,7 @@
   
   .products {
     padding: 0;
-    margin: 6vmax 0 ;
+    margin: 1vmax 0 ;
     margin-bottom: 10px;
   }
   .pagination {
@@ -193,6 +191,9 @@
   }
   .page-item {
     padding: 2vmax;
+  }
+  .manufacturer-link{
+    max-width: none;
   }
 }
 
