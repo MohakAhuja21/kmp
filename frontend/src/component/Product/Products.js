@@ -16,6 +16,7 @@ const Products = () => {
   const dispatch = useDispatch();
   const [currentPage, setCurrentPage] = useState(1);
   const [category, setCategory] = useState("");
+  const [manufacturer, setManufacturer] = useState("");
 
   const {
     products,
@@ -37,11 +38,13 @@ const Products = () => {
       toast.error(error);
       dispatch(clearErrors());
     }
-    dispatch(getProduct(keyword, currentPage, category));
-  }, [dispatch, keyword, currentPage, category, error]);
+
+    dispatch(getProduct(keyword, currentPage, category, manufacturer));
+  }, [dispatch, keyword, currentPage, category, manufacturer, error]);
 
   const resetFilters = () => {
     setCategory("");
+    setManufacturer("");
   };
 
   const categories = [
@@ -70,7 +73,18 @@ const Products = () => {
       image:
         "https://hips.hearstapps.com/netdoctor.cdnds.net/15/51/1450185971-g-corticosteroid-478186895.jpg",
     },
-    
+  ];
+
+  const manufacturers = [
+    {
+      name: "Cipla Ltd",
+      image: "https://theobservatory.in/wp-content/uploads/2019/05/3-25.png",
+    },
+    {
+      name: "Agrawal Drugs PVt. Ltd",
+      image:
+        "https://cdn.shopify.com/s/files/1/0508/5210/2328/files/ADPL_300x300.png?v=1662967587",
+    },
   ];
 
   return (
@@ -80,6 +94,7 @@ const Products = () => {
       ) : (
         <Fragment>
           <div className="categoryBox">
+          <p className="box__title">Shop By Category</p>
             {categories.map((category) => (
               <li
                 className="category-link"
@@ -91,6 +106,20 @@ const Products = () => {
               </li>
             ))}
           </div>
+          <div className="manufacturerBox">
+            <p className="box__title">Shop By Manufacturer</p>
+            {manufacturers.map((manufacturer) => (
+              <li
+                className="manufacturer-link"
+                key={manufacturer.name}
+                onClick={() => setManufacturer(manufacturer.name)}
+              >
+                <img src={manufacturer.image} alt={manufacturer.name} />
+                <span>{manufacturer.name}</span>
+              </li>
+            ))}
+          </div>
+
           <div className="resetButton">
             <Typography>
               <Button onClick={resetFilters}>

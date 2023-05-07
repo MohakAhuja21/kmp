@@ -31,13 +31,16 @@ const api = axios.create({
   adapter: cache.adapter,
 });
 
-export const getProduct = (keyword = "", currentPage = 1, category = "") =>
+export const getProduct = (keyword = "", currentPage = 1, category = "", manufacturer = "") =>
   async (dispatch) => {
     try {
       dispatch({ type: ALL_PRODUCT_REQUEST });
       let link = `/api/v1/products?keyword=${keyword}&page=${currentPage}`;
       if (category) {
-        link = `/api/v1/products?keyword=${keyword}&page=${currentPage}&category=${category}`;
+        link += `&category=${category}`;
+      }
+      if (manufacturer) {
+        link += `&manufacturer=${manufacturer}`;
       }
 
       const { data } = await api.get(link);
