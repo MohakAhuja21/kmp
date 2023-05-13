@@ -141,13 +141,13 @@
   width: fit-content;
   height: 80px;
   object-fit: contain;
-  border: 1px solid lightgrey;
   pointer-events: none;
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
   margin-bottom: 10px;
+  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
 }
 
 .category-link span {

@@ -82,15 +82,15 @@ const Products = () => {
     },
     {
       name: "Leeford",
-      image: "https://scontent.fdel27-4.fna.fbcdn.net/v/t39.30808-6/272283216_489479505865760_7753547163186870560_n.jpg?_nc_cat=1&ccb=1-7&_nc_sid=09cbfe&_nc_ohc=_VyJxvpoWocAX_-Btz2&_nc_ht=scontent.fdel27-4.fna&oh=00_AfAmdlvUt5POV03kHx4QJZsSrgbbSYxZSYF7NkPxgjCI2w&oe=645D2691",
+      image: "https://lh3.googleusercontent.com/p/AF1QipNPUEy_6KpadYNMWiT7tJQ-wIdZ_cFmpxizvnqp=w1080-h608-p-no-v0",
     },
     {
       name: "CADILA PHARMACEUTICALS LTD",
-      image: "https://scontent.fdel27-5.fna.fbcdn.net/v/t1.6435-9/49296051_582202098920282_6533187247729016832_n.jpg?_nc_cat=103&ccb=1-7&_nc_sid=09cbfe&_nc_ohc=wD59-xhNDbAAX9d5J2d&_nc_ht=scontent.fdel27-5.fna&oh=00_AfAaKrA0u6m4VojHd3dDx_94S8c3gi8R7RwIRdVkhq2cYQ&oe=647F197E",
+      image: "https://pbs.twimg.com/profile_images/1083224246866886656/HivE540A_400x400.jpg",
     },
     {
       name: "Intas",
-      image: "https://scontent.fdel27-5.fna.fbcdn.net/v/t39.30808-6/307202510_212955981061827_794165621425815895_n.jpg?_nc_cat=107&ccb=1-7&_nc_sid=09cbfe&_nc_ohc=_fTCRcPqZ6MAX83PUj5&_nc_ht=scontent.fdel27-5.fna&oh=00_AfBPwEbRrW7QUujpmAcvfQGeWvnLkZw574qD94J8GwTgZg&oe=645BD0FB",
+      image: "https://res.cloudinary.com/crunchbase-production/image/upload/c_lpad,h_256,w_256,f_auto,q_auto:eco,dpr_1/v1475737686/wtt9mg7b07ekoygavdks.png",
     },
     {
       name: "Agrawal Drugs PVt. Ltd",
