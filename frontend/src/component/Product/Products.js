@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { clearErrors, getProduct } from "../../actions/productAction";
 import Loader from "../layout/Loader/Loader";
 import ProductCard from "../Home/ProductCard";
-import { useParams } from "react-router-dom";
+import {useParams } from "react-router-dom";
 import Pagination from "react-js-pagination";
 import Typography from "@material-ui/core/Typography";
 import { Button } from "@material-ui/core";
@@ -30,7 +30,7 @@ const Products = () => {
   const setCurrentPageNo = (e) => {
     setCurrentPage(e);
   };
-
+  
   let count = filterProductCount;
 
   useEffect(() => {
@@ -42,6 +42,16 @@ const Products = () => {
     dispatch(getProduct(keyword, currentPage, category, manufacturer));
   }, [dispatch, keyword, currentPage, category, manufacturer, error]);
 
+  useEffect(() => {
+    const storedPage = sessionStorage.getItem('currentPage');
+    const initialPage = storedPage ? Number(storedPage) : 1;
+    setCurrentPage(initialPage);
+  }, []);
+
+  useEffect(() => {
+    sessionStorage.setItem('currentPage', currentPage);
+  }, [currentPage]);
+  
   const resetFilters = () => {
     setCategory("");
     setManufacturer("");

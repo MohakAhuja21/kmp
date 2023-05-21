@@ -49,6 +49,9 @@ export const getProduct = (keyword = "", currentPage = 1, category = "", manufac
         type: ALL_PRODUCT_SUCCESS,
         payload: data,
       });
+
+      // Store currentPage value in session storage
+      sessionStorage.setItem('currentPage', currentPage);
     } catch (error) {
       dispatch({
         type: ALL_PRODUCT_FAIL,
@@ -56,7 +59,6 @@ export const getProduct = (keyword = "", currentPage = 1, category = "", manufac
       });
     }
   };
-
 
   export const getProductDetails = (id) => async (dispatch) => {
     try {
