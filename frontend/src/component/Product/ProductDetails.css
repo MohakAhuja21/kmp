@@ -63,6 +63,7 @@
   outline: none;
   margin-inline: 3px;
   color: rgba(0, 0, 0, 0.74);
+  border-bottom: 2px dashed lightgray;
 }
 .detailsBlock-3 > p {
   border-top: 1px solid rgba(0, 0, 0, 0.205);

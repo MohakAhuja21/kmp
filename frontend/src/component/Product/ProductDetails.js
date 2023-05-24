@@ -53,6 +53,16 @@ const ProductDetails = () => {
 
   const [quantity, setQuantity] = useState(2);
 
+  const handleQuantityChange = (event) => {
+    const newQuantity = parseInt(event.target.value);
+
+    if (!isNaN(newQuantity)) {
+      setQuantity(newQuantity);
+    } else {
+      setQuantity(""); // Clear the input field if the entered value is not a valid number
+    }
+  };
+
   const increaseQuantity = () => {
     if (product.stock <= quantity + 1) {
       toast.error(
@@ -60,13 +70,13 @@ const ProductDetails = () => {
       );
       return;
     }
-    const qty = quantity + 2; // add 2 to the current quantity
+    const qty = quantity + 1; // add 2 to the current quantity
     setQuantity(qty);
   };
 
   const decreaseQuantity = () => {
-    if (quantity <= 2) {
-      toast.error("Quantity cannot be less than 2.");
+    if (quantity <= 1) {
+      toast.error("Quantity cannot be less than 1.");
       return;
     }
     const qty = quantity - 1;
@@ -74,6 +84,12 @@ const ProductDetails = () => {
   };
 
   const addToCartHandler = () => {
+
+    if (quantity === "" || quantity === 0) {
+      toast.error("Quantity should not be left blank or 0.");
+      return;
+    }
+
     dispatch(addItemsToCart(id, quantity));
     toast.success("Item Added To Cart");
 
@@ -192,11 +208,15 @@ const ProductDetails = () => {
                     MRP: <span>{`₹${product.mrp}`}</span>
                   </h2>
                 </div>
-
                 <div className="detailsBlock-3-1">
                   <div className="detailsBlock-3-1-1">
                     <button onClick={decreaseQuantity}>-</button>
-                    <input readOnly type="number" value={quantity} />
+                    <input
+                      type="number"
+                      value={quantity}
+                      onChange={handleQuantityChange}
+                      min="1" // Set the minimum value for the input
+                    />
                     <button onClick={increaseQuantity}>+</button>
                   </div>
                   <button
