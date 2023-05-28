@@ -9,6 +9,7 @@ import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import MetaData from "../layout/Metadata";
 import LockIcon from "@material-ui/icons/Lock";
+import { toast } from "react-hot-toast";
 
 const Cart = () => {
   const navigate = useNavigate();
@@ -16,21 +17,51 @@ const Cart = () => {
   const { cartItems } = useSelector((state) => state.cart);
   const { isAuthenticated } = useSelector((state) => state.user);
 
+  const updateQuantity = (id, quantity, stock) => {
+    if (stock < quantity) {
+      quantity = stock; // Limit quantity to available stock
+    } else if (quantity < 1) {
+      quantity = 1; // Limit quantity to a minimum of 1
+    }
+  
+    if (!quantity) {
+      toast.error('Input cannot be left blank.');
+      return;
+    }
+  
+    dispatch(addItemsToCart(id, quantity));
+  };
+  
+
   const increaseQuantity = (id, quantity, stock) => {
     const newQty = quantity + 1;
     if (stock <= quantity) {
       return;
     }
+  
+    if (!newQty) {
+      toast.error('Input cannot be left blank.');
+      return;
+    }
+  
     dispatch(addItemsToCart(id, newQty));
   };
+  
 
   const decreaseQuantity = (id, quantity) => {
     const newQty = quantity - 1;
     if (1 >= quantity) {
       return;
     }
+  
+    if (!newQty) {
+      toast.error('Input cannot be left blank.');
+      return;
+    }
+  
     dispatch(addItemsToCart(id, newQty));
   };
+  
 
   const deleteCartItems = (id) => {
     dispatch(removeItemsFromCart(id));
@@ -77,7 +108,16 @@ const Cart = () => {
                     >
                       -
                     </button>
-                    <input type="number" value={item.quantity} readOnly />
+                    <input
+  type="number"
+  min="1"
+  max={item.stock}
+  value={item.quantity}
+  onChange={(e) =>
+    updateQuantity(item.product, parseInt(e.target.value), item.stock)
+  }
+/>
+
                     <button
                       onClick={() =>
                         increaseQuantity(

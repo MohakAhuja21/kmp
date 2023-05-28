@@ -90,6 +90,7 @@
   font-weight: 400;
   font-size: 0.8vmax;
   color: rgba(0, 0, 0, 0.74);
+  border-bottom: 1px solid rgba(51, 51, 51, 0.449);
 }
 .cartPage{
   overflow: auto;
