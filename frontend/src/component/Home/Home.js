@@ -9,6 +9,7 @@ import Slider from "./SliderHome";
 import Footer from "../layout/Footer/Footer";
 import { toast } from "react-hot-toast";
 import { Link } from "react-router-dom";
+import PhoneIcon from '@mui/icons-material/Phone';
 
 const Home = () => {
   const dispatch = useDispatch();
@@ -20,6 +21,11 @@ const Home = () => {
     }
     dispatch(getProduct());
   }, [dispatch, error]);
+
+  
+  const handlePhoneCall = () => {
+    window.location.href = "tel:+919213632255";
+  };
 
   return (
     <Fragment>
@@ -74,6 +80,9 @@ const Home = () => {
       </div> */}
         </Fragment>
       )}
+  <div className="sticky-button" onClick={handlePhoneCall}>
+        <PhoneIcon className="fas fa-phone"></PhoneIcon>
+      </div>
       <Footer />
     </Fragment>
   );

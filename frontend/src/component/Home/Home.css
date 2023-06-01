@@ -122,6 +122,19 @@
   transform: scale(0.98);
 }
 
+.sticky-button {
+  position: fixed;
+  bottom: 20px;
+  right: 15px; 
+  background-color: whitesmoke;
+  padding: 10px;
+  border-radius: 20%;
+  cursor: pointer;
+  z-index: 9999;
+  color: #051b4c;
+  filter: drop-shadow(2px 4px 6px rgba(128, 128, 128, 0.755));
+}
+
 @media screen and (max-width: 800px) {
   .container{
     width: 100vw;
