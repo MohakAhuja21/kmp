@@ -9,7 +9,8 @@ import Slider from "./SliderHome";
 import Footer from "../layout/Footer/Footer";
 import { toast } from "react-hot-toast";
 import { Link } from "react-router-dom";
-import PhoneIcon from '@mui/icons-material/Phone';
+import PhoneIcon from "@mui/icons-material/Phone";
+import Offer from "./Offer";
 
 const Home = () => {
   const dispatch = useDispatch();
@@ -22,7 +23,6 @@ const Home = () => {
     dispatch(getProduct());
   }, [dispatch, error]);
 
-  
   const handlePhoneCall = () => {
     window.location.href = "tel:+919213632255";
   };
@@ -60,6 +60,7 @@ const Home = () => {
             </div>
           </div>
           <Slider />
+          <Offer />
           <div className="container">
             {products &&
               products.map((product) => <Product product={product} />)}
@@ -80,7 +81,7 @@ const Home = () => {
       </div> */}
         </Fragment>
       )}
-  <div className="sticky-button" onClick={handlePhoneCall}>
+      <div className="sticky-button" onClick={handlePhoneCall}>
         <PhoneIcon className="fas fa-phone"></PhoneIcon>
       </div>
       <Footer />
