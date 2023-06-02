@@ -5,6 +5,8 @@
     justify-content: center;
 }
 .offerCon_head{
+	text-align: center;
+	font-weight: bold;
     font-style: italic;
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
 	color: gray;
@@ -46,6 +48,7 @@
     object-fit: contain;
     height: auto;
     width: 15vh;
+	pointer-events: none;
 }
 .testimonial-container h3 {
 	color: #2d3d67;

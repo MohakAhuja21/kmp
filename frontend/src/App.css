@@ -22,3 +22,16 @@ input[type="number"] {
 .redColor {
   color: red !important;
 }
+
+.sticky-button {
+  position: fixed;
+  bottom: 20px;
+  right: 13px; 
+  background-color: rgb(250, 248, 248);
+  padding: 10px;
+  border-radius: 20%;
+  cursor: pointer;
+  z-index: 9999;
+  color: #051b4c;
+  filter: drop-shadow(2px 4px 6px rgba(128, 128, 128, 0.755));
+}

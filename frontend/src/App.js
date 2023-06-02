@@ -29,6 +29,7 @@ import Loader from "./component/layout/Loader/Loader";
 import PrescriptionManagement from "./component/Home/Prescription";
 import Contact from "./component/Home/Contact";
 import ReactGA from "react-ga";
+import PhoneIcon from "@mui/icons-material/Phone";
 
 const Products = React.lazy(() => import("./component/Product/Products"));
 const ProductDetails = React.lazy(() =>
@@ -53,6 +54,10 @@ function App() {
     // Track the page view
     ReactGA.pageview(window.location.pathname + window.location.search);
   }, []);
+
+  const handlePhoneCall = () => {
+    window.location.href = "tel:+919213632255";
+  };
 
   return (
     <Router>
@@ -198,6 +203,9 @@ function App() {
           />
           <Route path="*" element={<NotFound />} />
         </Routes>
+        <div className="sticky-button" onClick={handlePhoneCall}>
+        <PhoneIcon className="fas fa-phone"></PhoneIcon>
+      </div>
       </React.Suspense>
       <Toaster />
     </Router>
