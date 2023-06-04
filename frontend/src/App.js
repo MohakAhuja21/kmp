@@ -1,7 +1,7 @@
 import "./App.css";
 import Header from "./component/layout/Header/Header.js";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-import React from "react";
+import React, { useEffect } from "react";
 import Search from "./component/Product/Search.js";
 import { loadUser } from "./actions/userAction";
 import { useSelector } from "react-redux";
@@ -28,8 +28,9 @@ import { Toaster } from "react-hot-toast";
 import Loader from "./component/layout/Loader/Loader";
 import PrescriptionManagement from "./component/Home/Prescription";
 import Contact from "./component/Home/Contact";
-import ReactGA from "react-ga";
+// import ReactGA from "react-ga";
 import PhoneIcon from "@mui/icons-material/Phone";
+import TagManager, {tagManagerArgs} from 'react-gtm-module';
 
 const Products = React.lazy(() => import("./component/Product/Products"));
 const ProductDetails = React.lazy(() =>
@@ -45,15 +46,23 @@ const Profile = React.lazy(() => import("./component/User/Profile"));
 function App() {
   const { isAuthenticated, user } = useSelector((state) => state.user);
 
+  const tagManagerArgs = {
+    gtmId: 'GTM-PK7CBHP'
+};
+
   React.useEffect(() => {
     store.dispatch(loadUser());
 
-    // Initialize Google Analytics with your tracking ID
-    ReactGA.initialize("G-BFE61P3F87");
+    // // Initialize Google Analytics with your tracking ID
+    // ReactGA.initialize("G-BFE61P3F87");
 
-    // Track the page view
-    ReactGA.pageview(window.location.pathname + window.location.search);
+    // // Track the page view
+    // ReactGA.pageview(window.location.pathname + window.location.search);
   }, []);
+
+  useEffect(()=>{
+    TagManager.initialize(tagManagerArgs);
+  },[]);
 
   const handlePhoneCall = () => {
     window.location.href = "tel:+919213632255";
