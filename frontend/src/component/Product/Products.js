@@ -5,7 +5,6 @@ import { clearErrors, getProduct } from "../../actions/productAction";
 import Loader from "../layout/Loader/Loader";
 import ProductCard from "../Home/ProductCard";
 import {useParams } from "react-router-dom";
-import Pagination from "react-js-pagination";
 import Typography from "@material-ui/core/Typography";
 import { Button } from "@material-ui/core";
 import RestartAltIcon from "@mui/icons-material/RestartAlt";
@@ -14,24 +13,14 @@ import { toast } from "react-hot-toast";
 const Products = () => {
   const { keyword } = useParams();
   const dispatch = useDispatch();
-  const [currentPage, setCurrentPage] = useState(1);
   const [category, setCategory] = useState("");
   const [manufacturer, setManufacturer] = useState("");
 
   const {
     products,
     loading,
-    productCount,
-    resultPerPage,
-    filterProductCount,
     error,
   } = useSelector((state) => state.products);
-
-  const setCurrentPageNo = (e) => {
-    setCurrentPage(e);
-  };
-  
-  let count = filterProductCount;
 
   useEffect(() => {
     if (error) {
@@ -39,18 +28,8 @@ const Products = () => {
       dispatch(clearErrors());
     }
 
-    dispatch(getProduct(keyword, currentPage, category, manufacturer));
-  }, [dispatch, keyword, currentPage, category, manufacturer, error]);
-
-  useEffect(() => {
-    const storedPage = sessionStorage.getItem('currentPage');
-    const initialPage = storedPage ? Number(storedPage) : 1;
-    setCurrentPage(initialPage);
-  }, []);
-
-  useEffect(() => {
-    sessionStorage.setItem('currentPage', currentPage);
-  }, [currentPage]);
+    dispatch(getProduct(keyword, category, manufacturer));
+  }, [dispatch, keyword, category, manufacturer, error]);
   
   const resetFilters = () => {
     setCategory("");
@@ -156,25 +135,6 @@ const Products = () => {
                 <ProductCard key={product._id} product={product} />
               ))}
           </div>
-
-          {resultPerPage < count && (
-            <div className="paginationBox">
-              <Pagination
-                activePage={currentPage}
-                itemsCountPerPage={resultPerPage}
-                totalItemsCount={productCount}
-                onChange={setCurrentPageNo}
-                nextPageText="Next"
-                prevPageText="Prev"
-                firstPageText="1st"
-                lastPageText="Last"
-                itemClass="page-item"
-                linkClass="page-link"
-                activeClass="pageItemActive"
-                activeLinkClass="pageLinkActive"
-              />
-            </div>
-          )}
         </Fragment>
       )}
     </Fragment>

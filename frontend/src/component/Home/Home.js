@@ -62,8 +62,11 @@ const Home = () => {
           <Offer />
           <div className="container">
             {products &&
-              products.map((product) => <Product product={product} />)}
+              products
+                .slice(0, 12)
+                .map((product) => <Product product={product} />)}
           </div>
+
           <div className="card__products">
             <Link style={{ textDecoration: "none" }} to="/products">
               Shop all Products

@@ -36,30 +36,20 @@ exports.createProduct = catchAsyncError(async (req, res, next) => {
   });
 });
 
-//Get All Products
 exports.getAllProducts = catchAsyncError(async (req, res) => {
-  const resultPerPage = 12;
-  const productCount = await Product.countDocuments();
 
   const apiFeature = new APiFeatures(Product.find(), req.query)
     .search()
     .filter();
 
   let products = await apiFeature.query;
-  let filterProductCount = products.length;
 
-  apiFeature.pagination(resultPerPage);
-
-  // const products = await Product.find(); --> both line code work same but "Product.find()" use too much then we pass the querry
-  products = await apiFeature.query.clone();
   res.status(200).json({
     success: true,
     products,
-    productCount,
-    resultPerPage,
-    filterProductCount,
   });
 });
+
 
 // Get All Product (Admin)
 exports.getAdminProducts = catchAsyncError(async (req, res, next) => {

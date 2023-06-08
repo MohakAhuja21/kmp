@@ -31,27 +31,52 @@ const api = axios.create({
   adapter: cache.adapter,
 });
 
-export const getProduct = (keyword = "", currentPage = 1, category = "", manufacturer = "") =>
-  async (dispatch) => {
+// export const getProduct = (keyword = "", currentPage = 1, category = "", manufacturer = "") =>
+//   async (dispatch) => {
+//     try {
+//       dispatch({ type: ALL_PRODUCT_REQUEST });
+//       let link = `/api/v1/products?keyword=${keyword}&page=${currentPage}`;
+//       if (category) {
+//         link += `&category=${category}`;
+//       }
+//       if (manufacturer) {
+//         link += `&manufacturer=${manufacturer}`;
+//       }
+
+//       const { data } = await api.get(link);
+
+//       dispatch({
+//         type: ALL_PRODUCT_SUCCESS,
+//         payload: data,
+//       });
+
+//       // Store currentPage value in session storage
+//       sessionStorage.setItem('currentPage', currentPage);
+//     } catch (error) {
+//       dispatch({
+//         type: ALL_PRODUCT_FAIL,
+//         payload: error.response.data.message,
+//       });
+//     }
+//   };
+
+  export const getProduct = (keyword = "", category = "", manufacturer = "") => async (dispatch) => {
     try {
       dispatch({ type: ALL_PRODUCT_REQUEST });
-      let link = `/api/v1/products?keyword=${keyword}&page=${currentPage}`;
+      let link = `/api/v1/products?keyword=${keyword}`;
       if (category) {
         link += `&category=${category}`;
       }
       if (manufacturer) {
         link += `&manufacturer=${manufacturer}`;
       }
-
+  
       const { data } = await api.get(link);
-
+  
       dispatch({
         type: ALL_PRODUCT_SUCCESS,
         payload: data,
       });
-
-      // Store currentPage value in session storage
-      sessionStorage.setItem('currentPage', currentPage);
     } catch (error) {
       dispatch({
         type: ALL_PRODUCT_FAIL,
@@ -59,6 +84,7 @@ export const getProduct = (keyword = "", currentPage = 1, category = "", manufac
       });
     }
   };
+  
 
   export const getProductDetails = (id) => async (dispatch) => {
     try {
