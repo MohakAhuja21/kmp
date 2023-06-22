@@ -12,13 +12,7 @@ function Slider() {
       <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/be/Cipla_logo.svg/2560px-Cipla_logo.svg.png"  alt="cipla" />
     </div>
     <div className="slide">
-      <img src="https://alainahealthcare.com/wp-content/uploads/2023/01/801-8013397_mandap-layout-eris-lifesciences-limited-logo.jpg"  alt="eris" />
-    </div>
-    <div className="slide">
       <img src="https://upload.wikimedia.org/wikipedia/commons/3/3f/Mankind_Serving_Life.png"  alt="mankind" />
-    </div>
-    <div className="slide">
-      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTbUMKq7Jo-rfDzCgZATfAART4FlgWmHTS80zxQERj3wG9BFcujFmh0hg__7pGamjLO2W0&usqp=CAU"  alt="adpl" />
     </div>
     <div className="slide">
       <img src="https://ddnews.gov.in/sites/default/files/Zydus-Cadila.jpg"  alt="zydus cadilia" />

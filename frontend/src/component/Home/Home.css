@@ -32,7 +32,6 @@
 
 .slider .home__img {
   width: 62%;
-  /* min-height: 100%; */
   height: inherit;
   object-fit: cover;
   display: block;
@@ -102,7 +101,6 @@
   justify-content: center;
   height: 80px;
   margin-top: 10px;
-  /* border: 1px solid red; */
 }
 
 .card__products a {
@@ -149,8 +147,9 @@
     width: 50% !important;
   }
   .carousel-container {
-    height: 420px;
-  }
+    height: 40vh;
+    border-bottom-right-radius: 30px;
+  }  
   .homeHeading {
     font-size: 2.7vmax;
   }

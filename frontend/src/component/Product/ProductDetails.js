@@ -146,6 +146,18 @@ const ProductDetails = () => {
             <div className="productDetails_con">
               <div className="detailsBlock-1">
                 <h2 style={{ marginTop: "15px" }}>{product.name}</h2>
+                {product.packaging && (
+                  <p
+                    style={{
+                      fontSize: "13px",
+                      marginBottom:"2px",
+                      marginTop:"1px",
+                    }}
+                  >
+                    <b>Packaging</b>:&nbsp;
+                    {product.packaging}
+                  </p>
+                )}
                 {product.manufacturer && (
                   <p>
                     <b>Manufacturer</b>:&nbsp;
@@ -157,18 +169,6 @@ const ProductDetails = () => {
                   <p>
                     <b>Composition</b>:&nbsp;
                     {product.salt_composition}
-                  </p>
-                )}
-
-                {product.packaging && (
-                  <p
-                    style={{
-                      fontSize: "11px",
-                      color: "rgba(54, 54, 54, 0.868)",
-                    }}
-                  >
-                    <b>Packaging</b>:&nbsp;
-                    {product.packaging}
                   </p>
                 )}
               </div>
@@ -196,7 +196,8 @@ const ProductDetails = () => {
                           style={{
                             color: "red",
                             position: "relative",
-                            top: "2px",
+                            bottom:"3px",
+                            left:"2px",
                             cursor: "pointer",
                           }}
                           onClick={handleClick}
@@ -272,7 +273,7 @@ const ProductDetails = () => {
                   Description
                 </b>
                 :
-                <p style={{ marginTop: "8px", fontSize: "19px" }}>
+                <p style={{ marginTop: "10px", fontSize: "20px", letterSpacing:"1px", marginInline:"4px" }}>
                   {product.description}
                 </p>
               </div>
@@ -280,13 +281,13 @@ const ProductDetails = () => {
                 {similarProducts.length > 0 && (
                   <>
                     <h3>
-                      Similar products:{" "}
+                      Similar Products:{" "}
                       <span
                         style={{
                           fontWeight: "normal",
                           backgroundColor: "whitesmoke",
                           paddingLeft: "0.2rem",
-                          fontSize: "14px",
+                          fontSize: "16px",
                           letterSpacing: "1px",
                         }}
                       >

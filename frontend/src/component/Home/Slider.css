@@ -1,5 +1,5 @@
 .slide>img{
-    width: 170px;
+    width: 130px;
     object-fit: contain;
     height:  96px;
   }
@@ -54,7 +54,8 @@
     -webkit-animation: scroll 40s linear infinite;
     animation: scroll 40s linear infinite;
     display: flex;
-    width: calc(240px * 14);
+    width: calc(210px * 7);
+    filter: grayscale(1);
   }
   .sliderCon .slide {
     height: 100px;

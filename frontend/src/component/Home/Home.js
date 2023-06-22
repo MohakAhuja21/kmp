@@ -41,13 +41,11 @@ const Home = () => {
                     Pharmaceutical<br></br> Distributor
                   </h1>
                   <ul className="movie-des">
-                    <li>Trusted Partner for Wholesale Medicine Supply</li>
                     <li>
-                      We offer a wide range of medicines at competitive prices.
-                      With our fast and reliable service, you can rest assured
-                      that you will receive your order on time, every time.
-                      Partner with us today to experience the convenience and
-                      reliability of working with a trusted medicine wholesaler.
+                    Experience competitive prices, fast delivery, and trusted reliability with our wide range of medicines.
+                    </li>
+                    <li>
+                    Partner with us today for convenience and peace of mind.
                     </li>
                   </ul>
                 </div>

@@ -10,7 +10,7 @@
   top: 0;
 }
 .header__logo{
-  width: 111px;
+  width: 105px;
   object-fit: contain;
   margin: 0 5px;
 }
@@ -284,7 +284,7 @@
   .header__logo{
     margin-top: 3px;
     position: relative;
-    top: 3px;
+    top: 6px;
   }
   
   .header__searchInput{
@@ -387,10 +387,10 @@
       transform: rotate(-45deg) translate(26px, 26px);
   }
   .header__optionLineOne{
-      font-size: 16px;
+      font-size: 15px;
   }
   .header__optionLineTwo{
-      font-size: 17px;
+      font-size: 16px;
   }
   .header__profile {
     top: 155px;
