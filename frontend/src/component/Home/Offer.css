@@ -4,12 +4,16 @@
     display: flex;
     justify-content: center;
 }
-.offerCon_head{
+
+.offerCon_head {
 	text-align: center;
 	font-weight: bold;
-    font-style: italic;
-    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-	color: gray;
+	font-style: italic;
+	font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+	color: white;
+	background: none;
+	backdrop-filter: blur(10px);
+	text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.6), -1px -1px 3px rgba(255, 255, 255, 0.6);
 }
 
 #box {

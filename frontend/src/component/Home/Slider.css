@@ -10,8 +10,8 @@
       transform: translateX(0);
     }
     100% {
-      -webkit-transform: translateX(calc(-240px * 7));
-      transform: translateX(calc(-240px * 7));
+      -webkit-transform: translateX(calc(-240px * 8));
+      transform: translateX(calc(-240px * 8));
     }
   }
   @keyframes scroll {
@@ -20,8 +20,8 @@
       transform: translateX(0);
     }
     100% {
-      -webkit-transform: translateX(calc(-240px * 7));
-      transform: translateX(calc(-240px * 7));
+      -webkit-transform: translateX(calc(-240px * 8));
+      transform: translateX(calc(-240px * 8));
     }
   }
   .sliderCon {
