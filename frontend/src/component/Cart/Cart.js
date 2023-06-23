@@ -23,45 +23,42 @@ const Cart = () => {
     } else if (quantity < 1) {
       quantity = 1; // Limit quantity to a minimum of 1
     }
-  
+
     if (!quantity) {
-      toast.error('Input cannot be left blank.');
+      toast.error("Input cannot be left blank.");
       return;
     }
-  
+
     dispatch(addItemsToCart(id, quantity));
   };
-  
 
   const increaseQuantity = (id, quantity, stock) => {
     const newQty = quantity + 1;
     if (stock <= quantity) {
       return;
     }
-  
+
     if (!newQty) {
-      toast.error('Input cannot be left blank.');
+      toast.error("Input cannot be left blank.");
       return;
     }
-  
+
     dispatch(addItemsToCart(id, newQty));
   };
-  
 
   const decreaseQuantity = (id, quantity) => {
     const newQty = quantity - 1;
     if (1 >= quantity) {
       return;
     }
-  
+
     if (!newQty) {
-      toast.error('Input cannot be left blank.');
+      toast.error("Input cannot be left blank.");
       return;
     }
-  
+
     dispatch(addItemsToCart(id, newQty));
   };
-  
 
   const deleteCartItems = (id) => {
     dispatch(removeItemsFromCart(id));
@@ -109,14 +106,18 @@ const Cart = () => {
                       -
                     </button>
                     <input
-  type="number"
-  min="1"
-  max={item.stock}
-  value={item.quantity}
-  onChange={(e) =>
-    updateQuantity(item.product, parseInt(e.target.value), item.stock)
-  }
-/>
+                      type="number"
+                      min="1"
+                      max={item.stock}
+                      value={item.quantity}
+                      onChange={(e) =>
+                        updateQuantity(
+                          item.product,
+                          parseInt(e.target.value),
+                          item.stock
+                        )
+                      }
+                    />
 
                     <button
                       onClick={() =>

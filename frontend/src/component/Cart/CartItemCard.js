@@ -29,7 +29,7 @@ const CartItemCard = ({ item, deleteCartItems }) => {
           {isAuthenticated ? (
             <span>{`Price: ₹${item.price}`}</span>
           ) : (
-            <div style={{ fontSize: "small", color: "red" }}>First Login</div>
+            <div></div>
           )}
           <p onClick={handleRemoveClick}>Remove</p>
         </div>
