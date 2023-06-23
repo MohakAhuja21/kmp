@@ -6,7 +6,7 @@ const Offer = () => {
   const testimonials = [
     {
       name: "ELECTRAL POWDER",
-      scheme: "28+2",
+      scheme: "28+2 / 14+1",
       image:
         "https://newassets.apollo247.com/pub/media/catalog/product/e/l/ele0012.jpg",
       productId: "644e006eb9e1261b11398bee", // Add productId for linking
@@ -23,6 +23,20 @@ const Offer = () => {
       image:
         "https://res.fkhealthplus.com/incom/images/product/Quadriderm-RF-1669985958-10000666-1.jpg",
       productId: "6479cbf53fdabf22e0e7013b",
+    },
+    {
+      name: "BETADINE OINT. 15GM",
+      scheme: "10+1",
+      image:
+        "https://res.fkhealthplus.com/incom/images/product/betadine-1406055758-10002471.jpg",
+      productId: "649549f0c7f3af9f33395be8",
+    },
+    {
+      name: "EVEC 400 CAP",
+      scheme: "Free Fortune 1kg Sugar",
+      image:
+        "https://res.cloudinary.com/db4oba9mb/image/upload/v1687505112/removal.ai__d5c29ec6-dc00-4be6-bcfb-7ca7352fe751_mgkmim.png",
+      productId: "64954affdceca8330a8f60e9",
     },
   ];
 
