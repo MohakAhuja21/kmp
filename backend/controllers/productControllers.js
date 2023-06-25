@@ -37,12 +37,17 @@ exports.createProduct = catchAsyncError(async (req, res, next) => {
 });
 
 exports.getAllProducts = catchAsyncError(async (req, res) => {
-
   const apiFeature = new APiFeatures(Product.find(), req.query)
     .search()
     .filter();
 
   let products = await apiFeature.query;
+
+  // Fisher-Yates shuffle algorithm
+  for (let i = products.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [products[i], products[j]] = [products[j], products[i]];
+  }
 
   res.status(200).json({
     success: true,

@@ -15,6 +15,7 @@ import MetaData from "../layout/Metadata";
 import { toast } from "react-hot-toast";
 import RecommendIcon from "@mui/icons-material/Recommend";
 import LockIcon from "@material-ui/icons/Lock";
+import Confetti from "react-confetti";
 
 const ProductDetails = () => {
   const similarProductsRef = useRef(null);
@@ -32,6 +33,7 @@ const ProductDetails = () => {
   const [substituteProducts, setSubstituteProducts] = useState([]);
   const [percentageCheaper, setPercentageCheaper] = useState(null);
   const [showMessage, setShowMessage] = useState(false);
+  const [isProductAdded, setIsProductAdded] = useState(false);
 
   useEffect(() => {
     dispatch(getProductDetails(id)).then((data) => {
@@ -84,16 +86,35 @@ const ProductDetails = () => {
   };
 
   const addToCartHandler = () => {
-
     if (quantity === "" || quantity === 0) {
       toast.error("Quantity should not be left blank or 0.");
       return;
     }
 
     dispatch(addItemsToCart(id, quantity));
-    toast.success("Item Added To Cart");
 
-    // scroll to similar products if the ref exists
+    // Array of unique IDs
+    const uniqueIds = [
+      "6479cbf53fdabf22e0e7013b",
+      "644e006eb9e1261b11398bee",
+      "644e0165b9e1261b11398df5",
+      "649549f0c7f3af9f33395be8",
+      "64954affdceca8330a8f60e9",
+    ];
+
+    // Check if the added product has a unique ID
+    if (uniqueIds.includes(id)) {
+      toast.success("Offer product added to cart!");
+      setIsProductAdded(true);
+      // Show the confetti animation and notification for a few seconds
+      setTimeout(() => {
+        setIsProductAdded(false);
+      }, 4000);
+    } else {
+      toast.success("Item added to cart!");
+    }
+
+    // Scroll to similar products if the ref exists
     if (similarProductsRef && similarProductsRef.current) {
       similarProductsRef.current.scrollIntoView({ behavior: "smooth" });
     }
@@ -126,6 +147,11 @@ const ProductDetails = () => {
 
   return (
     <Fragment>
+      {isProductAdded && (
+        <div className="confetti-container" style={{ pointerEvents: "none" }}>
+          <Confetti width={window.innerWidth} height={window.innerHeight} />
+        </div>
+      )}
       {loading ? (
         <Loader />
       ) : (
@@ -150,8 +176,8 @@ const ProductDetails = () => {
                   <p
                     style={{
                       fontSize: "13px",
-                      marginBottom:"2px",
-                      marginTop:"1px",
+                      marginBottom: "2px",
+                      marginTop: "1px",
                     }}
                   >
                     <b>Packaging</b>:&nbsp;
@@ -196,8 +222,8 @@ const ProductDetails = () => {
                           style={{
                             color: "red",
                             position: "relative",
-                            bottom:"3px",
-                            left:"2px",
+                            bottom: "3px",
+                            left: "2px",
                             cursor: "pointer",
                           }}
                           onClick={handleClick}
@@ -273,7 +299,14 @@ const ProductDetails = () => {
                   Description
                 </b>
                 :
-                <p style={{ marginTop: "10px", fontSize: "20px", letterSpacing:"1px", marginInline:"4px" }}>
+                <p
+                  style={{
+                    marginTop: "10px",
+                    fontSize: "20px",
+                    letterSpacing: "1px",
+                    marginInline: "4px",
+                  }}
+                >
                   {product.description}
                 </p>
               </div>

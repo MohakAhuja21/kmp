@@ -212,6 +212,16 @@
   color: #666;
 }
 
+.confetti-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 9999;
+}
+
+
 /* responsive */
 @media screen and (max-width: 650px){
   .detailsBlock-1 > p:nth-child(3){

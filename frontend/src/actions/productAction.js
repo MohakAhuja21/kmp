@@ -1,5 +1,5 @@
 import axios from "axios";
-import { setupCache } from 'axios-cache-adapter';
+import { setupCache } from "axios-cache-adapter";
 
 import {
   ALL_PRODUCT_FAIL,
@@ -31,36 +31,9 @@ const api = axios.create({
   adapter: cache.adapter,
 });
 
-// export const getProduct = (keyword = "", currentPage = 1, category = "", manufacturer = "") =>
-//   async (dispatch) => {
-//     try {
-//       dispatch({ type: ALL_PRODUCT_REQUEST });
-//       let link = `/api/v1/products?keyword=${keyword}&page=${currentPage}`;
-//       if (category) {
-//         link += `&category=${category}`;
-//       }
-//       if (manufacturer) {
-//         link += `&manufacturer=${manufacturer}`;
-//       }
-
-//       const { data } = await api.get(link);
-
-//       dispatch({
-//         type: ALL_PRODUCT_SUCCESS,
-//         payload: data,
-//       });
-
-//       // Store currentPage value in session storage
-//       sessionStorage.setItem('currentPage', currentPage);
-//     } catch (error) {
-//       dispatch({
-//         type: ALL_PRODUCT_FAIL,
-//         payload: error.response.data.message,
-//       });
-//     }
-//   };
-
-  export const getProduct = (keyword = "", category = "", manufacturer = "") => async (dispatch) => {
+export const getProduct =
+  (keyword = "", category = "", manufacturer = "") =>
+  async (dispatch) => {
     try {
       dispatch({ type: ALL_PRODUCT_REQUEST });
       let link = `/api/v1/products?keyword=${keyword}`;
@@ -70,9 +43,9 @@ const api = axios.create({
       if (manufacturer) {
         link += `&manufacturer=${manufacturer}`;
       }
-  
+
       const { data } = await api.get(link);
-  
+
       dispatch({
         type: ALL_PRODUCT_SUCCESS,
         payload: data,
@@ -84,27 +57,26 @@ const api = axios.create({
       });
     }
   };
-  
 
-  export const getProductDetails = (id) => async (dispatch) => {
-    try {
-      dispatch({ type: PRODUCT_DETAILS_REQUEST });
-  
-      const { data } = await api.get(`/api/v1/product/${id}`);
-  
-      dispatch({
-        type: PRODUCT_DETAILS_SUCCESS,
-        payload: data.product,
-      });
-  
-      return data;
-    } catch (error) {
-      dispatch({
-        type: PRODUCT_DETAILS_FAIL,
-        payload: error.response.data.message,
-      });
-    }
-  };
+export const getProductDetails = (id) => async (dispatch) => {
+  try {
+    dispatch({ type: PRODUCT_DETAILS_REQUEST });
+
+    const { data } = await api.get(`/api/v1/product/${id}`);
+
+    dispatch({
+      type: PRODUCT_DETAILS_SUCCESS,
+      payload: data.product,
+    });
+
+    return data;
+  } catch (error) {
+    dispatch({
+      type: PRODUCT_DETAILS_FAIL,
+      payload: error.response.data.message,
+    });
+  }
+};
 
 // Get All Products For Admin
 export const getAdminProduct = () => async (dispatch) => {
