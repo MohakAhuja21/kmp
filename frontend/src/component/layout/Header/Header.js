@@ -271,7 +271,7 @@ function Header() {
       </div>
       <Link style={{ textDecoration: "none" }} to="/cart">
         <div className="header_optionCartMobile">
-          <ShoppingBasketRoundedIcon style={{ fontSize: "28px" }} />
+          <ShoppingBasketRoundedIcon style={{ fontSize: "30px" }} />
           <span className="header_optionLineTwo header_CartCount">
             {cartItems && cartItems.length !== 0 ? (
               <span className="flexCenter">{cartItems.length}</span>
@@ -286,7 +286,7 @@ function Header() {
           <div className="header_optionCart header_wishlistMobile">
             <FavoriteIcon
               style={{
-                fontSize: "26px",
+                fontSize: "30px",
                 color: isWishlistEmpty ? "whitesmoke" : "red",
               }}
             />

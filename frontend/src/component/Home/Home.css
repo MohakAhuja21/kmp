@@ -129,12 +129,14 @@
 @media screen and (max-width: 650px) {
   .movie-title{
     margin-top: 20px;
+    font-size: 35px;
     padding-left: 13px;
     font-style: italic;
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
   }
   .movie-des{
     line-height: 26px;
+    font-size: 17px;
     margin-top: 18px;
     padding-left: 30px;
     text-align: left;

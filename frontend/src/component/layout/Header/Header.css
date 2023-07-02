@@ -10,7 +10,7 @@
   top: 0;
 }
 .header__logo{
-  width: 105px;
+  width: 110px;
   object-fit: contain;
   margin: 0 5px;
 }
@@ -74,7 +74,7 @@
 
 .header__searchInput::placeholder{
   color: #333333d4;
-  font-size: 14px;
+  font-size: 15px;
 }
 
 .header__searchSuggestion {
@@ -288,7 +288,7 @@
   }
   
   .header__searchInput{
-    padding: 13.5px;
+    padding: 15px;
     margin-right: 0; /* add a small margin to the right of the input field */
     border-radius: 11px; /* round all corners of the input field */
     border: none; /* remove the border from the input field */
@@ -387,10 +387,10 @@
       transform: rotate(-45deg) translate(26px, 26px);
   }
   .header__optionLineOne{
-      font-size: 15px;
+      font-size: 16px;
   }
   .header__optionLineTwo{
-      font-size: 16px;
+      font-size: 17px;
   }
   .header__profile {
     top: 155px;

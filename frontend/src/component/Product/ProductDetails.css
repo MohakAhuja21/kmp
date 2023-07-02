@@ -26,8 +26,7 @@
   color: rgba(54, 54, 54, 0.693);
 }
 .detailsBlock-1 > p:nth-child(3), p:nth-child(4), p:nth-child(5){
-  font-size: 12px;
-  /* color: #333; */
+  font-size: 10px;
 }
 
 .detailsBlock-2{
@@ -86,7 +85,7 @@
 }
 .margin-price span {
   font-weight: bold;
-  font-size: 20px;
+  font-size: 22px;
   color: green;
 }
 
@@ -124,7 +123,7 @@
 }
 
 .similarProduct__box {
-  margin-top: 35px;
+  margin-top: 25px;
 }
 
 .similarProducts {
@@ -144,7 +143,6 @@
 }
 
 .shop__pro_recom img {
-  /* width: 110%; */
   height: 12vh;
   object-fit: contain;
 }
@@ -190,13 +188,13 @@
 
 .mrp-price {
   grid-column: 2 / 3;
-  font-size: 16px;
+  font-size: 13px;
   color:rgba(0, 0, 0, 0.593);
 }
 
 .selling-price>span{
   color: green;
-  font-size: 27px;
+  font-size: 28px;
   margin-left: 4px;
 }
 
@@ -225,7 +223,7 @@
 /* responsive */
 @media screen and (max-width: 650px){
   .detailsBlock-1 > p:nth-child(3){
-    font-size: 13px;
+    font-size: 10px;
     margin-bottom: 1px;
     color: rgba(54, 54, 54, 0.693);
   }
@@ -253,7 +251,7 @@
   
   .shop__pro_recom img {
     width: 80%;
-    height: 15vh;
+    height: 13vh;
     object-fit: contain;
   }
   
@@ -262,7 +260,7 @@
   }
   
   .shop__des_reco h5 {
-    font-size: 11px;
+    font-size: 12px;
     color: #333333f1;
     margin-bottom: 3px;
   }
@@ -292,10 +290,10 @@
   }
   .detailsBlock-3 > p {
     padding: 2vmax 0;
-    font-size: large;
+    font-size: 20px;
   }
   .detailsBlock-3 > p > h3{
-    font-size: large;
+    font-size: 20px;
   }
   .detailsBlock-3-1-1 > button {
     font-size: larger;

@@ -44,6 +44,7 @@ const Home = () => {
                     <li>
                     Experience competitive prices, fast delivery, and trusted reliability with our wide range of medicines.
                     </li>
+                    <br></br>
                     <li>
                     Partner with us today for convenience and peace of mind.
                     </li>

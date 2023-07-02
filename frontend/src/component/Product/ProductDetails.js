@@ -171,11 +171,11 @@ const ProductDetails = () => {
             </Carousel>
             <div className="productDetails_con">
               <div className="detailsBlock-1">
-                <h2 style={{ marginTop: "15px" }}>{product.name}</h2>
+                <h2 style={{ marginTop: "15px", fontSize:"16px" }}>{product.name}</h2>
                 {product.packaging && (
                   <p
                     style={{
-                      fontSize: "13px",
+                      fontSize: "10px",
                       marginBottom: "2px",
                       marginTop: "1px",
                     }}
@@ -261,7 +261,7 @@ const ProductDetails = () => {
                 <p>
                   Status:
                   <b
-                    style={{ marginLeft: "6px", fontSize: "20px" }}
+                    style={{ marginLeft: "6px", fontSize: "22px" }}
                     className={product.stock < 1 ? "redColor" : "greenColor"}
                   >
                     {product.stock < 1 ? "Out Of Stock" : "InStock"}
@@ -302,7 +302,7 @@ const ProductDetails = () => {
                 <p
                   style={{
                     marginTop: "10px",
-                    fontSize: "20px",
+                    fontSize: "14px",
                     letterSpacing: "1px",
                     marginInline: "4px",
                   }}
@@ -313,14 +313,14 @@ const ProductDetails = () => {
               <div className="similarProduct__box">
                 {similarProducts.length > 0 && (
                   <>
-                    <h3>
+                    <h3 style={{fontSize: "14px"}}>
                       Similar Products:{" "}
                       <span
                         style={{
                           fontWeight: "normal",
                           backgroundColor: "whitesmoke",
-                          paddingLeft: "0.2rem",
-                          fontSize: "16px",
+                          paddingLeft: "0.1rem",
+                          fontSize: "13px",
                           letterSpacing: "1px",
                         }}
                       >
@@ -362,12 +362,12 @@ const ProductDetails = () => {
               <div className="similarProduct__box">
                 {substituteProducts.length > 0 && (
                   <>
-                    <h3>
+                    <h3 style={{fontSize: '15px'}}>
                       Recommended Substitute
-                      <RecommendIcon style={{ color: "#082b79" }} />
+                      <RecommendIcon style={{ color: "#082b79", fontSize:"2rem"}} />
                     </h3>
                     {percentageCheaper && (
-                      <p style={{ marginTop: "2px" }}>
+                      <p style={{ marginTop: "2px", fontSize:"13px" }}>
                         This product is{" "}
                         <b className="substitute__medPrice">
                           {percentageCheaper}% cheaper
